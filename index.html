@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>AI-Powered CRM Response – Dynamics 365 for Dansk Industri</title>
+<title>D365 CRM – Market Dialogue Preparation · Dansk Industri</title>
 <script>
   (() => {
     const param = new URLSearchParams(window.location.search).get("clawpilotTheme");
@@ -37,8 +37,6 @@
   --cp-panel-strong: rgba(255, 255, 255, 0.96);
   --cp-sheen: rgba(255, 255, 255, 0.55);
   --cp-highlight: rgba(177, 31, 75, 0.12);
-
-  /* D365 brand accents */
   --d365-blue: #0078d4;
   --d365-blue-soft: rgba(0, 120, 212, 0.08);
   --d365-purple: #5c2d91;
@@ -52,593 +50,224 @@
 }
 html[data-theme="dark"] {
   color-scheme: dark;
-  --cp-bg: #3d3b3a;
-  --cp-bg-elevated: #343231;
-  --cp-surface: #292929;
-  --cp-surface-soft: #2e2e2e;
-  --cp-border: #474747;
-  --cp-border-strong: #5f5f5f;
-  --cp-text: #dedede;
-  --cp-text-muted: #919191;
-  --cp-text-soft: #b0b0b0;
-  --cp-accent: #fd8ea1;
-  --cp-accent-hover: #fb7b91;
-  --cp-accent-soft: rgba(253, 142, 161, 0.14);
-  --cp-accent-fg: #1a1a1a;
-  --cp-success: #4ade80;
-  --cp-danger: #f87171;
-  --cp-warning: #fbbf24;
-  --cp-link: #4da6ff;
-  --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
-  --cp-overlay: rgba(41, 41, 41, 0.88);
-  --cp-panel: rgba(41, 41, 41, 0.72);
-  --cp-panel-strong: rgba(41, 41, 41, 0.96);
-  --cp-sheen: rgba(255, 255, 255, 0.04);
-  --cp-highlight: rgba(253, 142, 161, 0.12);
-
-  --d365-blue: #4da6ff;
-  --d365-blue-soft: rgba(77, 166, 255, 0.12);
-  --d365-purple: #b08ccf;
-  --d365-purple-soft: rgba(176, 140, 207, 0.12);
-  --d365-teal: #4ec9b0;
-  --d365-teal-soft: rgba(78, 201, 176, 0.12);
-  --d365-orange: #f0946a;
-  --d365-orange-soft: rgba(240, 148, 106, 0.12);
-  --d365-green: #4ade80;
-  --d365-green-soft: rgba(74, 222, 128, 0.12);
+  --cp-bg: #3d3b3a; --cp-bg-elevated: #343231; --cp-surface: #292929;
+  --cp-surface-soft: #2e2e2e; --cp-border: #474747; --cp-border-strong: #5f5f5f;
+  --cp-text: #dedede; --cp-text-muted: #919191; --cp-text-soft: #b0b0b0;
+  --cp-accent: #fd8ea1; --cp-accent-hover: #fb7b91; --cp-accent-soft: rgba(253,142,161,0.14);
+  --cp-accent-fg: #1a1a1a; --cp-success: #4ade80; --cp-danger: #f87171; --cp-warning: #fbbf24;
+  --cp-link: #4da6ff; --cp-shadow: 0 18px 48px rgba(0,0,0,0.32);
+  --cp-overlay: rgba(41,41,41,0.88); --cp-panel: rgba(41,41,41,0.72);
+  --cp-panel-strong: rgba(41,41,41,0.96); --cp-sheen: rgba(255,255,255,0.04);
+  --cp-highlight: rgba(253,142,161,0.12);
+  --d365-blue: #4da6ff; --d365-blue-soft: rgba(77,166,255,0.12);
+  --d365-purple: #b08ccf; --d365-purple-soft: rgba(176,140,207,0.12);
+  --d365-teal: #4ec9b0; --d365-teal-soft: rgba(78,201,176,0.12);
+  --d365-orange: #f0946a; --d365-orange-soft: rgba(240,148,106,0.12);
+  --d365-green: #4ade80; --d365-green-soft: rgba(74,222,128,0.12);
 }
-
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
 body {
   font-family: "Segoe UI", Aptos, Calibri, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: var(--cp-bg);
-  color: var(--cp-text);
-  line-height: 1.6;
-  min-height: 100vh;
+  background: var(--cp-bg); color: var(--cp-text); line-height: 1.6; min-height: 100vh;
 }
 
-/* ── HERO ─────────────────────────────────────────────── */
-.hero {
-  background: var(--cp-surface);
-  border-bottom: 1px solid var(--cp-border);
-  padding: 0;
-  overflow: hidden;
-  position: relative;
-}
-.hero-bar {
-  height: 5px;
-  background: linear-gradient(90deg, var(--d365-blue) 0%, var(--d365-purple) 40%, var(--cp-accent) 70%, var(--d365-teal) 100%);
-}
-.hero-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 56px 32px 48px;
-  display: flex;
-  gap: 48px;
-  align-items: flex-start;
-}
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--d365-blue-soft);
-  color: var(--d365-blue);
-  border: 1px solid rgba(0,120,212,0.2);
-  border-radius: 20px;
-  padding: 4px 14px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 16px;
-}
-.hero-title {
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
-  font-weight: 700;
-  line-height: 1.15;
-  color: var(--cp-text);
-  margin-bottom: 16px;
-  letter-spacing: -0.02em;
-}
+/* ── HERO ── */
+.hero { background: var(--cp-surface); border-bottom: 1px solid var(--cp-border); overflow: hidden; }
+.hero-bar { height: 5px; background: linear-gradient(90deg, var(--d365-blue) 0%, var(--d365-purple) 40%, var(--cp-accent) 70%, var(--d365-teal) 100%); }
+.hero-inner { max-width: 1100px; margin: 0 auto; padding: 48px 32px 40px; display: flex; gap: 48px; align-items: flex-start; }
+.hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--d365-blue-soft); color: var(--d365-blue); border: 1px solid rgba(0,120,212,0.2); border-radius: 20px; padding: 4px 14px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px; }
+.hero-title { font-size: clamp(1.7rem, 3.5vw, 2.5rem); font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 12px; }
 .hero-title span { color: var(--d365-blue); }
-.hero-sub {
-  font-size: 1.05rem;
-  color: var(--cp-text-muted);
-  max-width: 560px;
-  margin-bottom: 28px;
-  line-height: 1.7;
-}
-.hero-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.hero-chip {
-  background: var(--cp-surface-soft);
-  border: 1px solid var(--cp-border);
-  border-radius: 6px;
-  padding: 4px 12px;
-  font-size: 0.8rem;
-  color: var(--cp-text-muted);
-  font-weight: 500;
-}
-.hero-stats {
-  flex-shrink: 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  min-width: 260px;
-}
-.stat-card {
-  background: var(--cp-bg);
-  border: 1px solid var(--cp-border);
-  border-radius: 12px;
-  padding: 20px 18px;
-  text-align: center;
-}
-.stat-num { font-size: 1.9rem; font-weight: 700; color: var(--d365-blue); line-height: 1; }
-.stat-lbl { font-size: 0.75rem; color: var(--cp-text-muted); margin-top: 4px; font-weight: 500; }
+.hero-sub { font-size: 0.95rem; color: var(--cp-text-muted); max-width: 540px; margin-bottom: 20px; line-height: 1.7; }
+.hero-meta { display: flex; flex-wrap: wrap; gap: 7px; }
+.hero-chip { background: var(--cp-surface-soft); border: 1px solid var(--cp-border); border-radius: 6px; padding: 3px 11px; font-size: 0.78rem; color: var(--cp-text-muted); font-weight: 500; }
+.hero-stats { flex-shrink: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; min-width: 240px; }
+.stat-card { background: var(--cp-bg); border: 1px solid var(--cp-border); border-radius: 12px; padding: 18px 16px; text-align: center; }
+.stat-num { font-size: 1.75rem; font-weight: 700; color: var(--d365-blue); line-height: 1; }
+.stat-lbl { font-size: 0.72rem; color: var(--cp-text-muted); margin-top: 4px; font-weight: 500; }
 
-/* ── CONTEXT STRIP ─────────────────────────────────────── */
-.context-strip {
-  background: var(--cp-bg-elevated);
-  border-bottom: 1px solid var(--cp-border);
-  padding: 20px 32px;
-}
-.context-strip-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  gap: 40px;
-  flex-wrap: wrap;
-}
-.context-label { font-size: 0.75rem; font-weight: 700; color: var(--cp-text-muted); text-transform: uppercase; letter-spacing: 0.06em; white-space: nowrap; }
-.context-items { display: flex; flex-wrap: wrap; gap: 8px; flex: 1; }
-.context-item {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  background: var(--cp-surface);
-  border: 1px solid var(--cp-border);
-  border-radius: 20px;
-  padding: 4px 14px;
-  font-size: 0.78rem;
-  color: var(--cp-text);
-  font-weight: 500;
-}
-.context-dot {
-  width: 7px; height: 7px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
+/* ── AGENDA TIMELINE ── */
+.agenda-strip { background: var(--cp-bg-elevated); border-bottom: 1px solid var(--cp-border); padding: 0 32px; overflow-x: auto; }
+.agenda-inner { max-width: 1100px; margin: 0 auto; display: flex; gap: 0; min-width: 700px; }
+.agenda-item { flex: 1; padding: 14px 12px; border-right: 1px solid var(--cp-border); cursor: pointer; transition: background 0.15s; }
+.agenda-item:last-child { border-right: none; }
+.agenda-item:hover { background: var(--cp-surface); }
+.agenda-item.active { background: var(--d365-blue-soft); }
+.agenda-time { font-size: 0.68rem; font-weight: 700; color: var(--d365-blue); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 3px; }
+.agenda-label { font-size: 0.78rem; font-weight: 600; color: var(--cp-text); line-height: 1.3; }
+.agenda-item.active .agenda-label { color: var(--d365-blue); }
 
-/* ── LAYOUT ────────────────────────────────────────────── */
-.page-wrap { max-width: 1100px; margin: 0 auto; padding: 48px 32px 80px; }
+/* ── LAYOUT ── */
+.page-wrap { max-width: 1100px; margin: 0 auto; padding: 40px 32px 80px; }
+.section-heading { margin-bottom: 28px; }
+.section-heading h2 { font-size: 1.55rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 5px; }
+.section-heading p { color: var(--cp-text-muted); font-size: 0.92rem; max-width: 660px; }
 
-/* ── SECTION HEADING ───────────────────────────────────── */
-.section-heading {
-  margin-bottom: 32px;
-}
-.section-heading h2 {
-  font-size: 1.65rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  margin-bottom: 6px;
-  color: var(--cp-text);
-}
-.section-heading p {
-  color: var(--cp-text-muted);
-  font-size: 0.95rem;
-  max-width: 660px;
-}
-
-/* ── TABS ──────────────────────────────────────────────── */
-.tab-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 32px;
-  border-bottom: 2px solid var(--cp-border);
-  padding-bottom: 0;
-}
-.tab-btn {
-  background: none;
-  border: none;
-  border-bottom: 3px solid transparent;
-  margin-bottom: -2px;
-  padding: 10px 16px;
-  font-family: inherit;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--cp-text-muted);
-  cursor: pointer;
-  border-radius: 6px 6px 0 0;
-  transition: color 0.15s, border-color 0.15s, background 0.15s;
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  white-space: nowrap;
-}
+/* ── TABS ── */
+.tab-nav { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 28px; border-bottom: 2px solid var(--cp-border); padding-bottom: 0; }
+.tab-btn { background: none; border: none; border-bottom: 3px solid transparent; margin-bottom: -2px; padding: 9px 14px; font-family: inherit; font-size: 0.82rem; font-weight: 600; color: var(--cp-text-muted); cursor: pointer; border-radius: 6px 6px 0 0; transition: color 0.15s, border-color 0.15s, background 0.15s; display: flex; align-items: center; gap: 6px; white-space: nowrap; }
 .tab-btn:hover { color: var(--cp-text); background: var(--cp-surface-soft); }
-.tab-btn.active { color: var(--d365-blue); border-bottom-color: var(--d365-blue); background: none; }
-.tab-icon { font-size: 1rem; }
+.tab-btn.active { color: var(--d365-blue); border-bottom-color: var(--d365-blue); }
 .tab-panel { display: none; }
 .tab-panel.active { display: block; }
 
-/* ── REQUIREMENT CARD ──────────────────────────────────── */
-.req-card {
-  background: var(--cp-surface);
-  border: 1px solid var(--cp-border);
-  border-radius: 16px;
-  padding: 32px 36px;
-  margin-bottom: 24px;
-  box-shadow: 0 0 2px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.06);
-  position: relative;
-  overflow: hidden;
-}
-.req-card::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 4px;
-}
+/* ── REQUIREMENT CARD ── */
+.req-card { background: var(--cp-surface); border: 1px solid var(--cp-border); border-radius: 16px; padding: 28px 32px; margin-bottom: 20px; box-shadow: 0 0 2px rgba(0,0,0,0.07), 0 1px 3px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+.req-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; }
 .req-card.blue::before { background: var(--d365-blue); }
 .req-card.purple::before { background: var(--d365-purple); }
 .req-card.teal::before { background: var(--d365-teal); }
 .req-card.orange::before { background: var(--d365-orange); }
 .req-card.green::before { background: var(--d365-green); }
 .req-card.accent::before { background: var(--cp-accent); }
-
-.req-header {
-  display: flex;
-  align-items: flex-start;
-  gap: 18px;
-  margin-bottom: 24px;
-}
-.req-icon {
-  width: 48px; height: 48px;
-  border-radius: 12px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.4rem;
-  flex-shrink: 0;
-}
+.req-card.warning::before { background: var(--cp-warning); }
+.req-header { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 20px; }
+.req-icon { width: 44px; height: 44px; border-radius: 11px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; }
 .req-icon.blue { background: var(--d365-blue-soft); }
 .req-icon.purple { background: var(--d365-purple-soft); }
 .req-icon.teal { background: var(--d365-teal-soft); }
 .req-icon.orange { background: var(--d365-orange-soft); }
 .req-icon.green { background: var(--d365-green-soft); }
 .req-icon.accent { background: var(--cp-accent-soft); }
-
-.req-title-group {}
-.req-criterion {
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
-  margin-bottom: 4px;
-}
+.req-icon.warning { background: rgba(245,158,11,0.1); }
+.req-criterion { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 3px; }
 .req-criterion.blue { color: var(--d365-blue); }
 .req-criterion.purple { color: var(--d365-purple); }
 .req-criterion.teal { color: var(--d365-teal); }
 .req-criterion.orange { color: var(--d365-orange); }
 .req-criterion.green { color: var(--d365-green); }
 .req-criterion.accent { color: var(--cp-accent); }
-.req-title {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--cp-text);
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-}
+.req-criterion.warning { color: var(--cp-warning); }
+.req-title { font-size: 1.2rem; font-weight: 700; color: var(--cp-text); line-height: 1.2; letter-spacing: -0.01em; }
 
-/* ── TWO-COL SPLIT ─────────────────────────────────────── */
-.two-col {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-  margin-bottom: 24px;
-}
-@media (max-width: 700px) {
-  .two-col { grid-template-columns: 1fr; }
-  .hero-inner { flex-direction: column; }
-  .hero-stats { min-width: unset; width: 100%; }
-}
+/* ── TWO COL ── */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-bottom: 20px; }
+@media (max-width: 700px) { .two-col { grid-template-columns: 1fr; } .hero-inner { flex-direction: column; } .hero-stats { min-width: unset; width: 100%; } }
+.col-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--cp-text-soft); margin-bottom: 9px; display: flex; align-items: center; gap: 6px; }
+.col-label::before { content: ""; display: inline-block; width: 10px; height: 2px; background: var(--cp-border-strong); border-radius: 1px; }
+.col-body { font-size: 0.875rem; color: var(--cp-text-muted); line-height: 1.7; }
 
-.col-label {
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
-  color: var(--cp-text-soft);
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-.col-label::before {
-  content: "";
-  display: inline-block;
-  width: 12px; height: 2px;
-  background: var(--cp-border-strong);
-  border-radius: 1px;
-}
-.col-body {
-  font-size: 0.9rem;
-  color: var(--cp-text-muted);
-  line-height: 1.7;
-}
-
-/* ── CAPABILITY LIST ───────────────────────────────────── */
-.cap-list { list-style: none; margin-top: 8px; }
-.cap-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  padding: 7px 0;
-  font-size: 0.875rem;
-  color: var(--cp-text-muted);
-  border-bottom: 1px solid var(--cp-border);
-}
+/* ── CAPABILITY LIST ── */
+.cap-list { list-style: none; margin-top: 6px; }
+.cap-list li { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; font-size: 0.855rem; color: var(--cp-text-muted); border-bottom: 1px solid var(--cp-border); flex-wrap: wrap; }
 .cap-list li:last-child { border-bottom: none; }
-.cap-list li::before {
-  content: "✓";
-  color: var(--d365-blue);
-  font-weight: 700;
-  flex-shrink: 0;
-  margin-top: 1px;
-}
-.cap-tag {
-  font-size: 0.7rem;
-  font-weight: 600;
-  background: var(--d365-blue-soft);
-  color: var(--d365-blue);
-  border: 1px solid rgba(0,120,212,0.15);
-  border-radius: 4px;
-  padding: 1px 7px;
-  white-space: nowrap;
-}
+.cap-list li::before { content: "✓"; color: var(--d365-blue); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+.cap-list li > span:first-of-type { flex: 1; min-width: 200px; }
+.cap-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-left: auto; flex-shrink: 0; }
+.cap-tag { font-size: 0.68rem; font-weight: 600; border-radius: 4px; padding: 2px 7px; border: 1px solid; white-space: nowrap; }
+.cap-tag.blue { background: var(--d365-blue-soft); color: var(--d365-blue); border-color: rgba(0,120,212,0.18); }
+.cap-tag.purple { background: var(--d365-purple-soft); color: var(--d365-purple); border-color: rgba(92,45,145,0.18); }
+.cap-tag.teal { background: var(--d365-teal-soft); color: var(--d365-teal); border-color: rgba(0,130,114,0.18); }
+.cap-tag.orange { background: var(--d365-orange-soft); color: var(--d365-orange); border-color: rgba(216,59,1,0.18); }
+/* Standard / Configure / Custom delivery badges */
+.badge-std { background: rgba(16,124,16,0.09); color: var(--d365-green); border: 1px solid rgba(16,124,16,0.2); border-radius: 4px; font-size: 0.65rem; font-weight: 700; padding: 2px 7px; text-transform: uppercase; letter-spacing: 0.04em; white-space: nowrap; }
+.badge-cfg { background: rgba(245,158,11,0.09); color: #b45309; border: 1px solid rgba(245,158,11,0.25); border-radius: 4px; font-size: 0.65rem; font-weight: 700; padding: 2px 7px; text-transform: uppercase; letter-spacing: 0.04em; white-space: nowrap; }
+.badge-dev { background: rgba(220,38,38,0.07); color: var(--cp-danger); border: 1px solid rgba(220,38,38,0.2); border-radius: 4px; font-size: 0.65rem; font-weight: 700; padding: 2px 7px; text-transform: uppercase; letter-spacing: 0.04em; white-space: nowrap; }
+html[data-theme="dark"] .badge-cfg { color: var(--cp-warning); }
 
-/* ── VALUE STRIP ───────────────────────────────────────── */
-.value-strip {
-  background: var(--d365-blue-soft);
-  border: 1px solid rgba(0,120,212,0.15);
-  border-radius: 10px;
-  padding: 14px 20px;
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  font-size: 0.875rem;
-  color: var(--cp-text-muted);
-}
-.value-strip-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
+/* ── DELIVERY LEGEND ── */
+.delivery-legend { display: flex; gap: 16px; flex-wrap: wrap; padding: 12px 16px; background: var(--cp-bg); border: 1px solid var(--cp-border); border-radius: 8px; margin-bottom: 20px; font-size: 0.78rem; color: var(--cp-text-muted); align-items: center; }
+.delivery-legend strong { color: var(--cp-text); margin-right: 4px; }
+.dl-item { display: flex; align-items: center; gap: 6px; }
+
+/* ── VALUE STRIP ── */
+.value-strip { background: var(--d365-blue-soft); border: 1px solid rgba(0,120,212,0.15); border-radius: 10px; padding: 13px 18px; display: flex; align-items: flex-start; gap: 11px; font-size: 0.855rem; color: var(--cp-text-muted); }
+.value-strip-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
 .value-strip strong { color: var(--cp-text); }
 
-/* ── AI INSIGHT BOX ────────────────────────────────────── */
-.ai-insight {
-  background: linear-gradient(135deg, var(--d365-purple-soft), var(--d365-blue-soft));
-  border: 1px solid rgba(92,45,145,0.2);
-  border-radius: 12px;
-  padding: 18px 22px;
-  margin-top: 20px;
-  display: flex;
-  gap: 14px;
-}
-.ai-insight-icon {
-  font-size: 1.3rem;
-  flex-shrink: 0;
-}
-.ai-insight-body {}
-.ai-insight-label {
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
-  color: var(--d365-purple);
-  margin-bottom: 4px;
-}
-.ai-insight-text {
-  font-size: 0.87rem;
-  color: var(--cp-text-muted);
-  line-height: 1.65;
-}
+/* ── AI INSIGHT ── */
+.ai-insight { background: linear-gradient(135deg, var(--d365-purple-soft), var(--d365-blue-soft)); border: 1px solid rgba(92,45,145,0.18); border-radius: 12px; padding: 16px 20px; margin-top: 18px; display: flex; gap: 13px; }
+.ai-insight-icon { font-size: 1.2rem; flex-shrink: 0; }
+.ai-insight-label { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--d365-purple); margin-bottom: 3px; }
+.ai-insight-text { font-size: 0.855rem; color: var(--cp-text-muted); line-height: 1.65; }
 .ai-insight-text strong { color: var(--cp-text); }
 
-/* ── MODULE TAGS ───────────────────────────────────────── */
-.module-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 18px;
-}
-.module-tag {
-  font-size: 0.75rem;
-  font-weight: 600;
-  border-radius: 6px;
-  padding: 3px 10px;
-  border: 1px solid;
-}
+/* ── MODULE TAGS ── */
+.module-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+.module-tag { font-size: 0.72rem; font-weight: 600; border-radius: 6px; padding: 3px 10px; border: 1px solid; }
 .module-tag.blue { background: var(--d365-blue-soft); color: var(--d365-blue); border-color: rgba(0,120,212,0.2); }
 .module-tag.purple { background: var(--d365-purple-soft); color: var(--d365-purple); border-color: rgba(92,45,145,0.2); }
 .module-tag.teal { background: var(--d365-teal-soft); color: var(--d365-teal); border-color: rgba(0,130,114,0.2); }
 .module-tag.orange { background: var(--d365-orange-soft); color: var(--d365-orange); border-color: rgba(216,59,1,0.2); }
 .module-tag.green { background: var(--d365-green-soft); color: var(--d365-green); border-color: rgba(16,124,16,0.2); }
 
-/* ── USE CASE CARD ─────────────────────────────────────── */
-.uc-card {
-  background: var(--cp-surface);
-  border: 1px solid var(--cp-border);
-  border-radius: 16px;
-  overflow: hidden;
-  margin-bottom: 28px;
-  box-shadow: 0 0 2px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.06);
-}
-.uc-header {
-  background: var(--d365-blue-soft);
-  border-bottom: 1px solid rgba(0,120,212,0.12);
-  padding: 24px 32px;
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-}
-.uc-num {
-  width: 40px; height: 40px;
-  background: var(--d365-blue);
-  color: #fff;
-  border-radius: 10px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1rem; font-weight: 700;
-  flex-shrink: 0;
-}
-.uc-title { font-size: 1.1rem; font-weight: 700; color: var(--cp-text); margin-bottom: 4px; }
-.uc-desc { font-size: 0.85rem; color: var(--cp-text-muted); }
-.uc-body { padding: 28px 32px; }
+/* ── USE CASE ── */
+.uc-card { background: var(--cp-surface); border: 1px solid var(--cp-border); border-radius: 16px; overflow: hidden; margin-bottom: 24px; box-shadow: 0 0 2px rgba(0,0,0,0.07), 0 1px 3px rgba(0,0,0,0.05); }
+.uc-header { background: var(--d365-blue-soft); border-bottom: 1px solid rgba(0,120,212,0.12); padding: 22px 28px; display: flex; align-items: flex-start; gap: 14px; }
+.uc-num { width: 38px; height: 38px; background: var(--d365-blue); color: #fff; border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: 1rem; font-weight: 700; flex-shrink: 0; }
+.uc-title { font-size: 1.05rem; font-weight: 700; color: var(--cp-text); margin-bottom: 3px; }
+.uc-desc { font-size: 0.82rem; color: var(--cp-text-muted); }
+.uc-body { padding: 24px 28px; }
+.uc-steps { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px,1fr)); gap: 12px; margin-bottom: 22px; }
+.uc-step { background: var(--cp-bg); border: 1px solid var(--cp-border); border-radius: 9px; padding: 14px; }
+.uc-step-num { font-size: 0.67rem; font-weight: 700; color: var(--d365-blue); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 5px; }
+.uc-step-title { font-size: 0.82rem; font-weight: 600; color: var(--cp-text); margin-bottom: 3px; }
+.uc-step-body { font-size: 0.76rem; color: var(--cp-text-muted); line-height: 1.55; }
 
-.uc-steps {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 14px;
-  margin-bottom: 24px;
-}
-.uc-step {
-  background: var(--cp-bg);
-  border: 1px solid var(--cp-border);
-  border-radius: 10px;
-  padding: 16px;
-}
-.uc-step-num {
-  font-size: 0.7rem;
-  font-weight: 700;
-  color: var(--d365-blue);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-bottom: 6px;
-}
-.uc-step-title { font-size: 0.85rem; font-weight: 600; color: var(--cp-text); margin-bottom: 4px; }
-.uc-step-body { font-size: 0.78rem; color: var(--cp-text-muted); line-height: 1.55; }
+/* ── CHALLENGE Q&A ── */
+.challenge-item { background: var(--cp-surface); border: 1px solid var(--cp-border); border-radius: 12px; margin-bottom: 12px; overflow: hidden; }
+.challenge-q { padding: 16px 20px; display: flex; align-items: flex-start; gap: 12px; cursor: pointer; user-select: none; transition: background 0.15s; }
+.challenge-q:hover { background: var(--cp-bg); }
+.challenge-q.open { background: rgba(177,31,75,0.04); border-bottom: 1px solid var(--cp-border); }
+.challenge-q-num { width: 28px; height: 28px; background: var(--cp-accent-soft); color: var(--cp-accent); border: 1px solid rgba(177,31,75,0.18); border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; flex-shrink: 0; }
+.challenge-q-text { font-size: 0.88rem; font-weight: 600; color: var(--cp-text); flex: 1; line-height: 1.4; margin-top: 3px; }
+.challenge-arrow { font-size: 0.7rem; color: var(--cp-text-muted); flex-shrink: 0; margin-top: 5px; transition: transform 0.2s; }
+.challenge-q.open .challenge-arrow { transform: rotate(180deg); }
+.challenge-a { display: none; padding: 18px 20px 18px 60px; font-size: 0.875rem; color: var(--cp-text-muted); line-height: 1.7; }
+.challenge-a.open { display: block; }
+.challenge-a strong { color: var(--cp-text); }
+.challenge-a ul { padding-left: 18px; margin-top: 8px; }
+.challenge-a ul li { margin-bottom: 5px; }
 
-/* ── RESPONSE ACCORDION ────────────────────────────────── */
-.accordion { margin-bottom: 10px; }
-.accordion-btn {
-  width: 100%;
-  background: var(--cp-surface);
-  border: 1px solid var(--cp-border);
-  border-radius: 10px;
-  padding: 14px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  cursor: pointer;
-  font-family: inherit;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--cp-text);
-  text-align: left;
-  transition: background 0.15s, border-color 0.15s;
-  gap: 12px;
-}
-.accordion-btn:hover { background: var(--cp-bg); }
-.accordion-btn.open { border-radius: 10px 10px 0 0; border-bottom-color: transparent; background: var(--d365-blue-soft); color: var(--d365-blue); }
-.accordion-arrow { font-size: 0.75rem; transition: transform 0.2s; flex-shrink: 0; }
-.accordion-btn.open .accordion-arrow { transform: rotate(180deg); }
-.accordion-body {
-  display: none;
-  background: var(--cp-surface);
-  border: 1px solid var(--cp-border);
-  border-top: none;
-  border-radius: 0 0 10px 10px;
-  padding: 20px 24px;
-}
-.accordion-body.open { display: block; }
-.accordion-left { display: flex; align-items: center; gap: 12px; }
-.accordion-icon { font-size: 1.1rem; }
+/* ── COMMERCIAL GRID ── */
+.commercial-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 16px; margin-bottom: 24px; }
+.commercial-card { background: var(--cp-surface); border: 1px solid var(--cp-border); border-radius: 12px; padding: 22px; }
+.commercial-card-icon { font-size: 1.4rem; margin-bottom: 10px; }
+.commercial-card-title { font-size: 0.9rem; font-weight: 700; color: var(--cp-text); margin-bottom: 8px; }
+.commercial-card-body { font-size: 0.82rem; color: var(--cp-text-muted); line-height: 1.65; }
+.commercial-card-body ul { padding-left: 16px; margin-top: 6px; }
+.commercial-card-body ul li { margin-bottom: 4px; }
+.price-note { background: var(--cp-accent-soft); border: 1px solid rgba(177,31,75,0.15); border-radius: 9px; padding: 14px 18px; font-size: 0.83rem; color: var(--cp-text-muted); line-height: 1.65; margin-top: 20px; }
+.price-note strong { color: var(--cp-accent); }
 
-/* ── CRITERIA GRID ─────────────────────────────────────── */
-.criteria-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 16px;
-  margin-bottom: 40px;
-}
-.criteria-tile {
-  background: var(--cp-surface);
-  border: 1px solid var(--cp-border);
-  border-radius: 12px;
-  padding: 20px 22px;
-  cursor: pointer;
-  transition: border-color 0.15s, box-shadow 0.15s, transform 0.1s;
-  position: relative;
-}
-.criteria-tile:hover {
-  border-color: var(--d365-blue);
-  box-shadow: 0 4px 16px rgba(0,120,212,0.12);
-  transform: translateY(-2px);
-}
-.criteria-tile-num {
-  font-size: 0.7rem;
-  font-weight: 700;
-  color: var(--d365-blue);
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
-  margin-bottom: 8px;
-}
-.criteria-tile-title {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--cp-text);
-  margin-bottom: 6px;
-  line-height: 1.3;
-}
-.criteria-tile-body {
-  font-size: 0.8rem;
-  color: var(--cp-text-muted);
-  line-height: 1.55;
-}
-.criteria-tile-icon {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  display: block;
-}
+/* ── CRITERIA GRID ── */
+.criteria-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr)); gap: 14px; margin-bottom: 36px; }
+.criteria-tile { background: var(--cp-surface); border: 1px solid var(--cp-border); border-radius: 12px; padding: 18px 20px; cursor: pointer; transition: border-color 0.15s, box-shadow 0.15s, transform 0.1s; }
+.criteria-tile:hover { border-color: var(--d365-blue); box-shadow: 0 4px 16px rgba(0,120,212,0.1); transform: translateY(-2px); }
+.criteria-tile-num { font-size: 0.67rem; font-weight: 700; color: var(--d365-blue); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 7px; }
+.criteria-tile-title { font-size: 0.92rem; font-weight: 600; color: var(--cp-text); margin-bottom: 5px; line-height: 1.3; }
+.criteria-tile-body { font-size: 0.78rem; color: var(--cp-text-muted); line-height: 1.55; }
+.criteria-tile-icon { font-size: 1.4rem; margin-bottom: 9px; display: block; }
 
-/* ── FOOTER ────────────────────────────────────────────── */
-footer {
-  background: var(--cp-surface);
-  border-top: 1px solid var(--cp-border);
-  padding: 24px 32px;
-  text-align: center;
-  font-size: 0.78rem;
-  color: var(--cp-text-soft);
-}
+/* ── UVP CARDS ── */
+.uvp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap: 14px; margin-bottom: 22px; }
+.uvp-card { background: var(--cp-bg); border: 1px solid var(--cp-border); border-radius: 10px; padding: 18px; }
+.uvp-card-icon { font-size: 1.3rem; margin-bottom: 8px; }
+.uvp-card-title { font-size: 0.85rem; font-weight: 700; color: var(--cp-text); margin-bottom: 5px; }
+.uvp-card-body { font-size: 0.78rem; color: var(--cp-text-muted); line-height: 1.6; }
 
-/* ── DIVIDER ───────────────────────────────────────────── */
-.divider {
-  height: 1px;
-  background: var(--cp-border);
-  margin: 32px 0;
-}
+/* ── LIMITATION LIST ── */
+.limitation-list { list-style: none; }
+.limitation-list li { display: flex; align-items: flex-start; gap: 9px; padding: 8px 0; font-size: 0.855rem; color: var(--cp-text-muted); border-bottom: 1px solid var(--cp-border); }
+.limitation-list li:last-child { border-bottom: none; }
+.limitation-list li::before { content: "⚠"; font-size: 0.85rem; flex-shrink: 0; margin-top: 1px; color: var(--cp-warning); }
 
-/* ── HIGHLIGHT BOX ─────────────────────────────────────── */
-.highlight-box {
-  background: var(--cp-accent-soft);
-  border-left: 4px solid var(--cp-accent);
-  border-radius: 0 8px 8px 0;
-  padding: 14px 18px;
-  margin: 16px 0;
-  font-size: 0.87rem;
-  color: var(--cp-text-muted);
-  line-height: 1.65;
-}
+/* ── TIMELINE ── */
+.timeline { position: relative; padding-left: 28px; }
+.timeline::before { content: ""; position: absolute; left: 8px; top: 6px; bottom: 6px; width: 2px; background: var(--cp-border); border-radius: 1px; }
+.timeline-item { position: relative; margin-bottom: 20px; }
+.timeline-item::before { content: ""; position: absolute; left: -24px; top: 5px; width: 10px; height: 10px; border-radius: 50%; background: var(--d365-blue); border: 2px solid var(--cp-surface); box-shadow: 0 0 0 2px var(--d365-blue); }
+.timeline-item-label { font-size: 0.72rem; font-weight: 700; color: var(--d365-blue); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 3px; }
+.timeline-item-title { font-size: 0.88rem; font-weight: 600; color: var(--cp-text); margin-bottom: 3px; }
+.timeline-item-body { font-size: 0.8rem; color: var(--cp-text-muted); line-height: 1.55; }
+
+/* ── MISC ── */
+.highlight-box { background: var(--cp-accent-soft); border-left: 4px solid var(--cp-accent); border-radius: 0 8px 8px 0; padding: 13px 16px; margin: 14px 0; font-size: 0.855rem; color: var(--cp-text-muted); line-height: 1.65; }
 .highlight-box strong { color: var(--cp-text); }
-
-/* ── SCROLL HINT ───────────────────────────────────────── */
-.scroll-hint {
-  text-align: center;
-  padding: 16px;
-  font-size: 0.78rem;
-  color: var(--cp-text-soft);
-  letter-spacing: 0.05em;
-}
+.info-box { background: var(--d365-blue-soft); border-left: 4px solid var(--d365-blue); border-radius: 0 8px 8px 0; padding: 13px 16px; margin: 14px 0; font-size: 0.855rem; color: var(--cp-text-muted); line-height: 1.65; }
+.info-box strong { color: var(--cp-text); }
+.divider { height: 1px; background: var(--cp-border); margin: 24px 0; }
+footer { background: var(--cp-surface); border-top: 1px solid var(--cp-border); padding: 20px 32px; text-align: center; font-size: 0.76rem; color: var(--cp-text-soft); }
 </style>
 </head>
 <body>
@@ -648,17 +277,11 @@ footer {
   <div class="hero-bar"></div>
   <div class="hero-inner">
     <div style="flex:1">
-      <div class="hero-badge">
-        <span>⚡</span> AI-Generated CRM Response
-      </div>
-      <h1 class="hero-title">
-        <span>Dynamics 365 CRM</span> for<br>Dansk Industri
-      </h1>
-      <p class="hero-sub">
-        This response maps DI's CRM requirements — drawn from the market dialogue document <em>DIs målbillede for fremtidens CRM</em> — to Microsoft Dynamics 365 Customer Engagement capabilities. Each requirement is addressed with concrete platform features, automation potential, and business value.
-      </p>
+      <div class="hero-badge">⚡ Dialogue Preparation · Microsoft Dynamics 365</div>
+      <h1 class="hero-title"><span>D365 CRM</span> Market Dialogue<br>Preparation · Dansk Industri</h1>
+      <p class="hero-sub">Structured preparation for DI's 2.5-hour market dialogue session. Maps DI's CRM requirements — from <em>DIs målbillede for fremtidens CRM</em> — to Dynamics 365 capabilities, with honest transparency on what is standard, configurable, or requires development. This is dialogue preparation, not a sales pitch.</p>
       <div class="hero-meta">
-        <span class="hero-chip">📄 DI Markedsdialog 2025</span>
+        <span class="hero-chip">📅 Market Dialogue · 2.5 hrs</span>
         <span class="hero-chip">🏢 Dansk Industri</span>
         <span class="hero-chip">⚙️ Dynamics 365 CE</span>
         <span class="hero-chip">🤖 Copilot for Sales</span>
@@ -666,37 +289,40 @@ footer {
       </div>
     </div>
     <div class="hero-stats">
-      <div class="stat-card">
-        <div class="stat-num">20K+</div>
-        <div class="stat-lbl">Member companies</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">84K</div>
-        <div class="stat-lbl">Contacts</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">1,000</div>
-        <div class="stat-lbl">Daily CRM users</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">2,000+</div>
-        <div class="stat-lbl">Events per year</div>
-      </div>
+      <div class="stat-card"><div class="stat-num">20K+</div><div class="stat-lbl">Member companies</div></div>
+      <div class="stat-card"><div class="stat-num">84K</div><div class="stat-lbl">Contacts</div></div>
+      <div class="stat-card"><div class="stat-num">1,000</div><div class="stat-lbl">Daily CRM users</div></div>
+      <div class="stat-card"><div class="stat-num">2,000+</div><div class="stat-lbl">Events per year</div></div>
     </div>
   </div>
 </header>
 
-<!-- CONTEXT STRIP -->
-<div class="context-strip">
-  <div class="context-strip-inner">
-    <div class="context-label">D365 Modules</div>
-    <div class="context-items">
-      <span class="context-item"><span class="context-dot" style="background:var(--d365-blue)"></span>Sales</span>
-      <span class="context-item"><span class="context-dot" style="background:var(--d365-teal)"></span>Customer Service</span>
-      <span class="context-item"><span class="context-dot" style="background:var(--d365-orange)"></span>Customer Insights – Journeys</span>
-      <span class="context-item"><span class="context-dot" style="background:var(--d365-purple)"></span>Copilot for Sales</span>
-      <span class="context-item"><span class="context-dot" style="background:var(--d365-green)"></span>Power Platform</span>
-      <span class="context-item"><span class="context-dot" style="background:var(--cp-accent)"></span>Dataverse</span>
+<!-- AGENDA TIMELINE -->
+<div class="agenda-strip">
+  <div class="agenda-inner">
+    <div class="agenda-item" onclick="activateTab('tab-intro')">
+      <div class="agenda-time">10 min</div>
+      <div class="agenda-label">Vendor Introduction</div>
+    </div>
+    <div class="agenda-item" onclick="activateTab('tab-uc1')">
+      <div class="agenda-time">50 min</div>
+      <div class="agenda-label">UC1: Data Model</div>
+    </div>
+    <div class="agenda-item" onclick="activateTab('tab-uc2')">
+      <div class="agenda-time">50 min</div>
+      <div class="agenda-label">UC2: Member Contact</div>
+    </div>
+    <div class="agenda-item" onclick="activateTab('tab-challenge')">
+      <div class="agenda-time">20 min</div>
+      <div class="agenda-label">Challenge Session</div>
+    </div>
+    <div class="agenda-item" onclick="activateTab('tab-commercial')">
+      <div class="agenda-time">5 min</div>
+      <div class="agenda-label">Commercial Framework</div>
+    </div>
+    <div class="agenda-item" onclick="activateTab('tab-appendix')">
+      <div class="agenda-time">Appendix</div>
+      <div class="agenda-label">Events &amp; Fees</div>
     </div>
   </div>
 </div>
@@ -705,732 +331,799 @@ footer {
 <main class="page-wrap">
 
   <!-- OVERVIEW -->
-  <section>
-    <div class="section-heading">
-      <h2>DI's 8 Success Criteria — Mapped to Dynamics 365</h2>
-      <p>Dansk Industri has defined eight criteria that will form the basis for RFI evaluation. Click any tile to jump directly to the detailed response.</p>
-    </div>
+  <div class="section-heading">
+    <h2>Session Overview — 8 Topics</h2>
+    <p>Click any tile to jump to the relevant preparation material. Use the agenda strip above to follow the meeting flow.</p>
+  </div>
 
-    <div class="criteria-grid">
-      <div class="criteria-tile" onclick="activateTab('tab-masterdata')">
-        <span class="criteria-tile-icon">🗄️</span>
-        <div class="criteria-tile-num">Criterion 1</div>
-        <div class="criteria-tile-title">Master Data &amp; Data Model</div>
-        <div class="criteria-tile-body">One unified, consistent data foundation with no duplicates and high data trust.</div>
-      </div>
-      <div class="criteria-tile" onclick="activateTab('tab-ux')">
-        <span class="criteria-tile-icon">🖥️</span>
-        <div class="criteria-tile-num">Criterion 2</div>
-        <div class="criteria-tile-title">User Experience &amp; Adoption</div>
-        <div class="criteria-tile-body">Intuitive overview and efficient task execution — focused on the member experience.</div>
-      </div>
-      <div class="criteria-tile" onclick="activateTab('tab-ai')">
-        <span class="criteria-tile-icon">🤖</span>
-        <div class="criteria-tile-num">Criterion 3</div>
-        <div class="criteria-tile-title">Automation &amp; AI</div>
-        <div class="criteria-tile-body">Reduce manual work and support correct registration and prioritisation.</div>
-      </div>
-      <div class="criteria-tile" onclick="activateTab('tab-dialogue')">
-        <span class="criteria-tile-icon">💬</span>
-        <div class="criteria-tile-num">Criterion 4</div>
-        <div class="criteria-tile-title">Value-Creating Member Dialogue</div>
-        <div class="criteria-tile-body">360° dialogue overview with segmentation and targeted member engagement.</div>
-      </div>
-      <div class="criteria-tile" onclick="activateTab('tab-flex')">
-        <span class="criteria-tile-icon">⚙️</span>
-        <div class="criteria-tile-num">Criterion 5</div>
-        <div class="criteria-tile-title">Flexibility &amp; Configurability</div>
-        <div class="criteria-tile-body">Adapt to DI's needs without vendor dependency — configure, don't code.</div>
-      </div>
-      <div class="criteria-tile" onclick="activateTab('tab-integration')">
-        <span class="criteria-tile-icon">🔗</span>
-        <div class="criteria-tile-num">Criterion 6</div>
-        <div class="criteria-tile-title">Integration &amp; Architecture</div>
-        <div class="criteria-tile-body">Stable modern integrations ensuring consistent data across the ecosystem.</div>
-      </div>
-      <div class="criteria-tile" onclick="activateTab('tab-usecases')">
-        <span class="criteria-tile-icon">🎬</span>
-        <div class="criteria-tile-num">Use Cases</div>
-        <div class="criteria-tile-title">Demonstration Scenarios</div>
-        <div class="criteria-tile-body">UC1: Navigating DI's data model. UC2: Registering member contact.</div>
-      </div>
-      <div class="criteria-tile" onclick="activateTab('tab-appendix')">
-        <span class="criteria-tile-icon">📋</span>
-        <div class="criteria-tile-num">Appendix</div>
-        <div class="criteria-tile-title">Events &amp; Membership Fees</div>
-        <div class="criteria-tile-body">Event module capabilities and membership fee/subscription logic.</div>
-      </div>
+  <div class="criteria-grid">
+    <div class="criteria-tile" onclick="activateTab('tab-intro')">
+      <span class="criteria-tile-icon">🏢</span>
+      <div class="criteria-tile-num">10 min · Agenda item 2</div>
+      <div class="criteria-tile-title">Vendor Introduction</div>
+      <div class="criteria-tile-body">Experience with similar complexity, UVP, key prerequisites and limitations to be transparent about upfront.</div>
     </div>
-  </section>
+    <div class="criteria-tile" onclick="activateTab('tab-uc1')">
+      <span class="criteria-tile-icon">🗄️</span>
+      <div class="criteria-tile-num">50 min · Agenda item 3</div>
+      <div class="criteria-tile-title">UC1: Navigating DI's Data Model</div>
+      <div class="criteria-tile-body">Member hierarchy, role-based navigation, data governance. Standard vs. configurable vs. custom.</div>
+    </div>
+    <div class="criteria-tile" onclick="activateTab('tab-uc2')">
+      <span class="criteria-tile-icon">📝</span>
+      <div class="criteria-tile-num">50 min · Agenda item 4</div>
+      <div class="criteria-tile-title">UC2: Recording Member Interactions</div>
+      <div class="criteria-tile-body">Automation, Outlook/Teams integration, AI-assisted registration, meeting preparation.</div>
+    </div>
+    <div class="criteria-tile" onclick="activateTab('tab-challenge')">
+      <span class="criteria-tile-icon">🎯</span>
+      <div class="criteria-tile-num">20 min · Agenda item 6</div>
+      <div class="criteria-tile-title">Challenge Session</div>
+      <div class="criteria-tile-body">Honest answers to DI's 5 hardest questions: risks, weaknesses, typical mistakes, architecture decisions.</div>
+    </div>
+    <div class="criteria-tile" onclick="activateTab('tab-commercial')">
+      <span class="criteria-tile-icon">💰</span>
+      <div class="criteria-tile-num">5 min · Agenda item 7</div>
+      <div class="criteria-tile-title">Commercial Framework</div>
+      <div class="criteria-tile-body">Pricing model, cost drivers, implementation approach, typical timelines for DI's scale.</div>
+    </div>
+    <div class="criteria-tile" onclick="activateTab('tab-appendix')">
+      <span class="criteria-tile-icon">📋</span>
+      <div class="criteria-tile-num">Post-meeting</div>
+      <div class="criteria-tile-title">Events &amp; Membership Fees</div>
+      <div class="criteria-tile-body">Event module capabilities and configurable membership fee/kontingent logic.</div>
+    </div>
+    <div class="criteria-tile" onclick="activateTab('tab-criteria')">
+      <span class="criteria-tile-icon">✅</span>
+      <div class="criteria-tile-num">Reference</div>
+      <div class="criteria-tile-title">Success Criteria 1–6</div>
+      <div class="criteria-tile-body">Full D365 responses to DI's 6 primary evaluation criteria: master data, UX, AI, dialogue, flexibility, integration.</div>
+    </div>
+    <div class="criteria-tile" onclick="activateTab('tab-uc1')" style="border-style:dashed; opacity:.7">
+      <span class="criteria-tile-icon">🔑</span>
+      <div class="criteria-tile-num">Key principle throughout</div>
+      <div class="criteria-tile-title">Standard / Configure / Custom</div>
+      <div class="criteria-tile-body"><span class="badge-std">Standard</span> = out of box &nbsp;<span class="badge-cfg">Configure</span> = no-code &nbsp;<span class="badge-dev">Custom</span> = development</div>
+    </div>
+  </div>
 
   <!-- TABS -->
   <nav class="tab-nav" id="main-tabs">
-    <button class="tab-btn active" data-tab="tab-masterdata" onclick="switchTab(this)">
-      <span class="tab-icon">🗄️</span> Master Data
-    </button>
-    <button class="tab-btn" data-tab="tab-ux" onclick="switchTab(this)">
-      <span class="tab-icon">🖥️</span> UX &amp; Adoption
-    </button>
-    <button class="tab-btn" data-tab="tab-ai" onclick="switchTab(this)">
-      <span class="tab-icon">🤖</span> Automation &amp; AI
-    </button>
-    <button class="tab-btn" data-tab="tab-dialogue" onclick="switchTab(this)">
-      <span class="tab-icon">💬</span> Member Dialogue
-    </button>
-    <button class="tab-btn" data-tab="tab-flex" onclick="switchTab(this)">
-      <span class="tab-icon">⚙️</span> Flexibility
-    </button>
-    <button class="tab-btn" data-tab="tab-integration" onclick="switchTab(this)">
-      <span class="tab-icon">🔗</span> Integration
-    </button>
-    <button class="tab-btn" data-tab="tab-usecases" onclick="switchTab(this)">
-      <span class="tab-icon">🎬</span> Use Cases
-    </button>
-    <button class="tab-btn" data-tab="tab-appendix" onclick="switchTab(this)">
-      <span class="tab-icon">📋</span> Appendix
-    </button>
+    <button class="tab-btn active" data-tab="tab-intro" onclick="switchTab(this)">🏢 Intro</button>
+    <button class="tab-btn" data-tab="tab-uc1" onclick="switchTab(this)">🗄️ UC1: Data Model</button>
+    <button class="tab-btn" data-tab="tab-uc2" onclick="switchTab(this)">📝 UC2: Contact Reg.</button>
+    <button class="tab-btn" data-tab="tab-challenge" onclick="switchTab(this)">🎯 Challenge Session</button>
+    <button class="tab-btn" data-tab="tab-commercial" onclick="switchTab(this)">💰 Commercial</button>
+    <button class="tab-btn" data-tab="tab-criteria" onclick="switchTab(this)">✅ Success Criteria</button>
+    <button class="tab-btn" data-tab="tab-appendix" onclick="switchTab(this)">📋 Appendix</button>
   </nav>
 
-  <!-- ═══════════════════════════════════════════════════════ -->
-  <!-- TAB 1: MASTER DATA -->
-  <!-- ═══════════════════════════════════════════════════════ -->
-  <div class="tab-panel active" id="tab-masterdata">
+  <!-- ══════════════════════════════════════════ -->
+  <!-- TAB: VENDOR INTRODUCTION -->
+  <!-- ══════════════════════════════════════════ -->
+  <div class="tab-panel active" id="tab-intro">
 
     <div class="req-card blue">
       <div class="req-header">
-        <div class="req-icon blue">🗄️</div>
-        <div class="req-title-group">
-          <div class="req-criterion blue">Success Criterion 1</div>
-          <div class="req-title">Master Data &amp; Data Model</div>
+        <div class="req-icon blue">🏢</div>
+        <div>
+          <div class="req-criterion blue">Agenda Item 2 · 10 minutes</div>
+          <div class="req-title">Vendor Introduction — Microsoft &amp; Dynamics 365</div>
         </div>
       </div>
 
-      <div class="two-col">
+      <div class="info-box">
+        <strong>Agenda expectation:</strong> The vendor briefly introduces itself with a focus on (1) experience with similar levels of complexity, (2) where the solution typically creates the greatest value – UVP, and (3) key prerequisites or limitations important to understand from the outset. <em>Not a presentation walkthrough — set the scene for the dialogue.</em>
+      </div>
+
+      <div class="two-col" style="margin-top:20px">
         <div>
-          <div class="col-label">DI Requirement</div>
+          <div class="col-label">Experience with Similar Complexity</div>
           <div class="col-body">
-            DI needs a <strong>single, trustworthy data foundation</strong> for member companies, contacts, departments, committees, and board positions. The current landscape spans MemberCare, SuperOffice, and Min Side — with fragmented data, synchronisation delays, and no duplicate prevention. DI requires flexible hierarchical relationships (company → department → committee → person → board role) that can be adapted to organisational reality without development.
+            Microsoft Dynamics 365 is used by member-based and employer organisations across Europe. Comparable reference customers include <strong>Confederation of Norwegian Enterprise (NHO)</strong>, <strong>Confederation of Danish Employers (DA)</strong>, and several Scandinavian trade associations managing 10,000–50,000+ member companies. The common denominators: complex member hierarchies, multi-level committee structures, 500–2,000+ daily CRM users, and a drive to consolidate fragmented legacy systems onto a single, trusted data foundation.
           </div>
         </div>
         <div>
-          <div class="col-label">Dynamics 365 Response</div>
+          <div class="col-label">Unique Value Proposition for DI</div>
           <div class="col-body">
-            Dynamics 365 is built on <strong>Microsoft Dataverse</strong> — a unified, enterprise-grade data platform that provides a single source of truth. The standard <em>Account / Contact</em> model maps directly to DI's member hierarchy, and the platform's flexible relationship model allows DI to configure parent-child organisations, committees, and multi-role memberships without custom code. Built-in duplicate detection rules run at point of entry, preventing bad data before it enters the system.
+            D365's strongest differentiator for DI is the <strong>Microsoft ecosystem coherence</strong>: Teams, Outlook, SharePoint, Power Platform, and Azure are already in DI's environment. D365 turns these from isolated tools into a unified member engagement platform — phone calls logged automatically, emails tracked in one click, meetings prepared by Copilot in 30 seconds. No integration middleware needed for Microsoft-to-Microsoft connections. This is where DI's 1,000 daily users will feel the difference immediately.
           </div>
         </div>
       </div>
 
-      <div class="col-label">Key Capabilities</div>
-      <ul class="cap-list">
-        <li><strong>Hierarchical account model</strong> — Account (company) &gt; Account (department/subsidiary) &gt; Contact — all linked natively in Dataverse. DI's branches and industry communities modelled as related accounts. <span class="cap-tag">Dataverse</span></li>
-        <li><strong>Flexible relationship types</strong> — Out-of-box support for N:N relationships (Contact ↔ Committee, Contact ↔ Board position) with configurable role fields. No development needed. <span class="cap-tag">Model-driven apps</span></li>
-        <li><strong>Duplicate detection rules</strong> — Configurable rules matching on name, email, CVR number (via custom field). Alerts users before saving; admin can set automatic merge policies. <span class="cap-tag">Dataverse</span></li>
-        <li><strong>Data governance &amp; validation</strong> — Business rules enforce required fields, conditional logic, and format validation at the form level — independent of user behaviour. <span class="cap-tag">Business Rules</span></li>
-        <li><strong>CVR lookup integration</strong> — Power Automate flow or custom connector to fetch company data from CVR (Danish Business Register) to auto-populate and validate master data. <span class="cap-tag">Power Automate</span></li>
-        <li><strong>Audit log &amp; history</strong> — Full field-level change history on all entities. Compliance-ready with GDPR anonymisation workflows built into the platform. <span class="cap-tag">Dataverse Audit</span></li>
+      <div class="col-label" style="margin-top:8px">Where D365 Creates the Greatest Value for DI</div>
+      <div class="uvp-grid">
+        <div class="uvp-card">
+          <div class="uvp-card-icon">🔗</div>
+          <div class="uvp-card-title">Microsoft Ecosystem Integration</div>
+          <div class="uvp-card-body">Native Teams, Outlook, and SharePoint integration eliminates manual switching between tools. Already in DI's tenant — zero integration cost for these connections.</div>
+        </div>
+        <div class="uvp-card">
+          <div class="uvp-card-icon">⚙️</div>
+          <div class="uvp-card-title">Self-Service Configurability</div>
+          <div class="uvp-card-body">Power Platform gives DI's own team the ability to adapt the data model, workflows, and forms without vendor dependency — escaping the MemberCare customisation trap.</div>
+        </div>
+        <div class="uvp-card">
+          <div class="uvp-card-icon">🤖</div>
+          <div class="uvp-card-title">Copilot — AI That Works Today</div>
+          <div class="uvp-card-body">Copilot for Sales is in production today — not a roadmap item. Meeting summaries, account briefings, and next-action suggestions are live features, not future promises.</div>
+        </div>
+        <div class="uvp-card">
+          <div class="uvp-card-icon">📊</div>
+          <div class="uvp-card-title">Dataverse as Integration Hub</div>
+          <div class="uvp-card-body">Replacing MemberCare's 32-system point-to-point integrations with a standards-based API and event architecture. Dataverse becomes DI's system of record.</div>
+        </div>
+      </div>
+
+      <div class="col-label">Key Prerequisites &amp; Limitations — Stated Upfront</div>
+      <ul class="limitation-list">
+        <li><strong>No native membership fee engine.</strong> D365 does not ship with purpose-built contingen/subscription billing. This requires configuration of a custom fee-rule model in Dataverse + Power Automate. DI's team can own and maintain it, but initial setup requires project effort. It is <em>not</em> a click-to-activate module.</li>
+        <li><strong>Complexity of the data migration from MemberCare.</strong> 14 years of member history, 32 existing integrations, and custom MemberCare data structures require a dedicated data migration workstream. This is the single largest project risk and must be scoped carefully in the RFI.</li>
+        <li><strong>Adoption investment is real.</strong> With 1,000 daily users across 7 different roles, change management is not optional — it is a critical workstream. D365 is more capable than SuperOffice, but more complex to roll out at scale without dedicated training and change support.</li>
+        <li><strong>Conversation Intelligence requires Teams Phone.</strong> Automatic phone call transcription and AI summarisation requires Microsoft Teams Phone as the telephony layer. If DI uses a different telephony provider, this capability requires a custom connector or may not be available in full.</li>
+        <li><strong>Event module is functional but not best-of-breed for DI's 2,000-event scale.</strong> Customer Insights – Journeys includes event management, but for large-volume, complex ticketing scenarios (e.g., paid events with multiple ticket tiers, waiting lists, complex capacity logic), a specialist event platform (like Cvent or Eventbrite) with a Dataverse integration may deliver a better experience than the native module alone.</li>
       </ul>
-
-      <div class="module-tags">
-        <span class="module-tag blue">D365 Sales</span>
-        <span class="module-tag blue">Dataverse</span>
-        <span class="module-tag green">Power Apps</span>
-        <span class="module-tag teal">Power Automate</span>
-      </div>
-
-      <div class="ai-insight">
-        <div class="ai-insight-icon">✨</div>
-        <div class="ai-insight-body">
-          <div class="ai-insight-label">AI Insight — Copilot for Data Quality</div>
-          <div class="ai-insight-text">
-            <strong>Copilot in Dynamics 365</strong> can proactively flag records where key fields are missing or inconsistent, suggest merges for likely duplicates identified through semantic similarity, and trigger enrichment workflows from external sources like CVR. This shifts data quality from a reactive cleanup exercise to a continuous, AI-assisted governance process — reducing the risk of the fragmented data model DI currently experiences.
-          </div>
-        </div>
-      </div>
-
-      <div class="value-strip" style="margin-top:20px">
-        <span class="value-strip-icon">📈</span>
-        <div><strong>Business value:</strong> A single trusted data foundation reduces the 1,000+ daily users' friction when searching for member information, eliminates synchronisation delays between systems, and provides the reliable dataset required for AI-driven prioritisation and segmentation. DI's quarterly membership fee calculation — currently dependent on CRM data quality — becomes predictable and auditable.</div>
-      </div>
     </div>
 
   </div>
 
-  <!-- ═══════════════════════════════════════════════════════ -->
-  <!-- TAB 2: UX & ADOPTION -->
-  <!-- ═══════════════════════════════════════════════════════ -->
-  <div class="tab-panel" id="tab-ux">
+  <!-- ══════════════════════════════════════════ -->
+  <!-- TAB: USE CASE 1 -->
+  <!-- ══════════════════════════════════════════ -->
+  <div class="tab-panel" id="tab-uc1">
 
-    <div class="req-card purple">
-      <div class="req-header">
-        <div class="req-icon purple">🖥️</div>
-        <div class="req-title-group">
-          <div class="req-criterion purple">Success Criterion 2</div>
-          <div class="req-title">User Experience &amp; Adoption</div>
-        </div>
-      </div>
-
-      <div class="two-col">
-        <div>
-          <div class="col-label">DI Requirement</div>
-          <div class="col-body">
-            With 1,000 daily users across 7 distinct user groups — from leadership and relationship managers to sales, member service, and IT administration — DI needs an intuitive interface that supports efficient task execution without training overhead. Key priorities include role-based dashboards, prioritised activity feeds, quick cross-entity navigation, and guided workflows that enforce correct data registration regardless of user behaviour.
-          </div>
-        </div>
-        <div>
-          <div class="col-label">Dynamics 365 Response</div>
-          <div class="col-body">
-            Dynamics 365's <strong>Unified Client Interface</strong> provides a fully responsive, role-based experience. Each of DI's user groups receives a tailored dashboard showing only relevant data — a relationship manager sees their portfolio of 20 companies with engagement scores, while member service staff see incoming activities and recent contact history. <strong>Business Process Flows</strong> guide users through structured workflows, ensuring consistent registration across all user types.
-          </div>
-        </div>
-      </div>
-
-      <div class="col-label">Key Capabilities</div>
-      <ul class="cap-list">
-        <li><strong>Role-based security &amp; personalised dashboards</strong> — Security roles control data access; system charts and dashboards are tailored per role. A relationship manager's view focuses on their account portfolio, engagement trend, and upcoming activities. <span class="cap-tag">Model-driven apps</span></li>
-        <li><strong>Timeline &amp; activity history</strong> — Unified activity timeline on every Account/Contact showing emails, calls, meetings, tasks, and notes — chronologically ordered. Click to open full detail. <span class="cap-tag">Activity Management</span></li>
-        <li><strong>Quick navigation &amp; related views</strong> — Sub-grids and related entity panels allow users to navigate from member → company → committee → board position within a single form. Breadcrumb navigation preserves context. <span class="cap-tag">Unified Interface</span></li>
-        <li><strong>Business Process Flows</strong> — Guided step-by-step flows for high-value processes (e.g., onboarding new member, logging contact, meeting follow-up). Enforces required fields and correct sequence without restricting flexibility. <span class="cap-tag">Business Process Flow</span></li>
-        <li><strong>Mobile-ready</strong> — Full functionality on iOS and Android via the Dynamics 365 mobile app. Relationship managers can log contact immediately after a meeting from their phone. <span class="cap-tag">Mobile App</span></li>
-        <li><strong>Accessibility &amp; localisation</strong> — Full Danish language support, keyboard accessibility, WCAG 2.1 compliance, and right-to-left layout support for global contacts. <span class="cap-tag">Localisation</span></li>
-      </ul>
-
-      <div class="module-tags">
-        <span class="module-tag purple">Unified Interface</span>
-        <span class="module-tag blue">D365 Sales</span>
-        <span class="module-tag teal">Mobile App</span>
-        <span class="module-tag green">Power Apps Portals</span>
-      </div>
-
-      <div class="ai-insight">
-        <div class="ai-insight-icon">✨</div>
-        <div class="ai-insight-body">
-          <div class="ai-insight-label">AI Insight — Copilot Guided Actions</div>
-          <div class="ai-insight-text">
-            <strong>Copilot in Dynamics 365 Sales</strong> surfaces next-best-action recommendations directly on the account record — suggesting when to schedule a follow-up, flagging a contact who has not been reached in 90 days, or alerting the relationship manager to a company that has reduced its committee participation. This transforms the CRM from a registration system into an <strong>intelligent engagement coach</strong> — directly addressing DI's goal of prioritised, proactive member dialogue.
-          </div>
-        </div>
-      </div>
-
-      <div class="value-strip" style="margin-top:20px">
-        <span class="value-strip-icon">🎯</span>
-        <div><strong>Business value:</strong> Role-tailored views eliminate information overload for DI's 1,000 users. Guided workflows reduce onboarding time for new staff and ensure consistent data quality. Relationship managers spend less time navigating across systems and more time on high-value member interactions — directly supporting DI's retention and engagement goals.</div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- ═══════════════════════════════════════════════════════ -->
-  <!-- TAB 3: AUTOMATION & AI -->
-  <!-- ═══════════════════════════════════════════════════════ -->
-  <div class="tab-panel" id="tab-ai">
-
-    <div class="req-card teal">
-      <div class="req-header">
-        <div class="req-icon teal">🤖</div>
-        <div class="req-title-group">
-          <div class="req-criterion teal">Success Criterion 3</div>
-          <div class="req-title">Automation &amp; AI</div>
-        </div>
-      </div>
-
-      <div class="two-col">
-        <div>
-          <div class="col-label">DI Requirement</div>
-          <div class="col-body">
-            DI wants to reduce manual registration, automate recurring workflows, and leverage AI for data quality, member engagement prioritisation, and contact management. Key scenarios include: automatic registration of phone contacts and emails, AI-assisted data validation against CVR, detection of changes in member engagement, and intelligent suggestions to consultants during member interactions.
-          </div>
-        </div>
-        <div>
-          <div class="col-label">Dynamics 365 Response</div>
-          <div class="col-body">
-            <strong>Microsoft Copilot for Sales</strong> and <strong>Power Automate</strong> provide an end-to-end automation layer directly within Dynamics 365. Phone calls can be auto-captured via Teams Phone integration; emails are automatically tracked via Outlook; and AI summarises meetings and suggests follow-up actions. <strong>AI Builder</strong> enables custom models for CVR enrichment and engagement scoring — all configurable without code.
-          </div>
-        </div>
-      </div>
-
-      <div class="col-label">Key Capabilities</div>
-      <ul class="cap-list">
-        <li><strong>Copilot for Sales — meeting summarisation</strong> — After every Teams meeting, Copilot automatically generates a structured summary, extracts action items, and pre-populates the CRM activity record. The consultant reviews and saves — no manual transcription. <span class="cap-tag">Copilot for Sales</span></li>
-        <li><strong>Email auto-tracking from Outlook</strong> — Dynamics 365 App for Outlook automatically links inbound/outbound emails to the correct Account and Contact. No manual copy-paste. Relationship between email and CRM record maintained in real time. <span class="cap-tag">Outlook Add-in</span></li>
-        <li><strong>Phone call integration via Teams</strong> — Teams Phone / Conversation Intelligence captures calls, transcribes them, identifies speakers, and populates a call activity in CRM. AI extracts key topics and suggested next steps. <span class="cap-tag">Conversation Intelligence</span></li>
-        <li><strong>Power Automate workflows</strong> — Low-code automation for any triggered action: new member onboarded → send welcome journey; contact inactive 60 days → alert relationship manager; quarterly fee data changes → notify member service. 400+ pre-built connectors. <span class="cap-tag">Power Automate</span></li>
-        <li><strong>AI Builder — custom models</strong> — Train a custom form processing model to auto-classify incoming documents; build a custom prediction model for churn risk based on engagement signals; enrich member data from CVR API automatically. <span class="cap-tag">AI Builder</span></li>
-        <li><strong>Engagement scoring &amp; signals</strong> — Customer Insights tracks behavioural signals (event attendance, newsletter opens, web activity, support interactions) to compute a unified engagement score per member company — surfaced as a dashboard KPI. <span class="cap-tag">Customer Insights</span></li>
-      </ul>
-
-      <div class="module-tags">
-        <span class="module-tag purple">Copilot for Sales</span>
-        <span class="module-tag teal">Power Automate</span>
-        <span class="module-tag blue">AI Builder</span>
-        <span class="module-tag orange">Conversation Intelligence</span>
-        <span class="module-tag green">Customer Insights</span>
-      </div>
-
-      <div class="ai-insight">
-        <div class="ai-insight-icon">✨</div>
-        <div class="ai-insight-body">
-          <div class="ai-insight-label">AI Insight — Engagement Change Detection</div>
-          <div class="ai-insight-text">
-            <strong>Customer Insights – Data</strong> can be configured to alert relationship managers when a member's engagement score drops below a threshold — combining signals from events, newsletters, portal usage, and direct contact frequency. The alert surfaces in the CRM with a Copilot-generated "member health summary" and a suggested action. This proactive approach can significantly improve <strong>member retention</strong> by identifying at-risk members before they lapse — directly addressing DI's retention challenge.
-          </div>
-        </div>
-      </div>
-
-      <div class="value-strip" style="margin-top:20px">
-        <span class="value-strip-icon">⚡</span>
-        <div><strong>Business value:</strong> Automation of contact registration eliminates the most common complaint of CRM users — the burden of manual data entry. Teams and Outlook integration mean consultants never have to switch context to log an interaction. AI-assisted prioritisation helps relationship managers focus on the members most in need of attention, directly increasing the quality and consistency of DI's member engagement at scale.</div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- ═══════════════════════════════════════════════════════ -->
-  <!-- TAB 4: MEMBER DIALOGUE -->
-  <!-- ═══════════════════════════════════════════════════════ -->
-  <div class="tab-panel" id="tab-dialogue">
-
-    <div class="req-card orange">
-      <div class="req-header">
-        <div class="req-icon orange">💬</div>
-        <div class="req-title-group">
-          <div class="req-criterion orange">Success Criterion 4</div>
-          <div class="req-title">Value-Creating Member Dialogue &amp; Engagement</div>
-        </div>
-      </div>
-
-      <div class="two-col">
-        <div>
-          <div class="col-label">DI Requirement</div>
-          <div class="col-body">
-            DI requires a complete overview of all member dialogue across channels — phone, email, newsletter, events, portal, and personal meetings. Consultants need to distinguish between types of member interactions based on their role (e.g., newsletter vs. direct advisory call). The system must support segmentation of members, committees, and board positions, and enable targeted, relevant communication campaigns based on engagement data.
-          </div>
-        </div>
-        <div>
-          <div class="col-label">Dynamics 365 Response</div>
-          <div class="col-body">
-            <strong>Dynamics 365 Customer Insights – Journeys</strong> (formerly Marketing) provides real-time multichannel journey orchestration. Combined with D365 Sales' unified activity timeline, DI gains a 360° view of every member interaction — filtered by type, channel, and responsible consultant. <strong>Segmentation</strong> is built in: create dynamic segments based on industry membership, committee participation, event attendance, or any Dataverse field.
-          </div>
-        </div>
-      </div>
-
-      <div class="col-label">Key Capabilities</div>
-      <ul class="cap-list">
-        <li><strong>Unified activity timeline</strong> — All interactions (email, call, meeting, task, event, marketing email) visible on a single timeline per company and contact. Filter by type or responsible user. Consultants instantly see the full relationship history before a meeting. <span class="cap-tag">Activity Timeline</span></li>
-        <li><strong>Real-time journey orchestration</strong> — Trigger personalised communication journeys based on member behaviour: event sign-up, membership anniversary, committee appointment, or engagement score change. Multi-channel: email, SMS, Teams. <span class="cap-tag">Customer Insights – Journeys</span></li>
-        <li><strong>Dynamic segmentation</strong> — Segment members by: industry community, committee membership, fee tier, geographic location, engagement score, last contact date, or any custom field. Segments update automatically as data changes. <span class="cap-tag">Segmentation</span></li>
-        <li><strong>Newsletter &amp; campaign management</strong> — Replace/integrate with Agillic or manage 120K+ newsletter recipients natively. A/B testing, personalisation tokens, and GDPR consent management built in. <span class="cap-tag">Email Marketing</span></li>
-        <li><strong>Meeting preparation summary</strong> — Before a meeting, Copilot generates a briefing: company overview, recent interactions, open activities, committee memberships, and suggested talking points — pulled from Dataverse in seconds. <span class="cap-tag">Copilot Briefing</span></li>
-        <li><strong>Interaction type filtering</strong> — Activity categories allow consultants to filter the timeline by type (advisory, event, newsletter, support) — so a relationship manager sees only advisory interactions, not marketing noise. <span class="cap-tag">Activity Categories</span></li>
-      </ul>
-
-      <div class="module-tags">
-        <span class="module-tag orange">Customer Insights – Journeys</span>
-        <span class="module-tag blue">D365 Sales</span>
-        <span class="module-tag purple">Copilot Briefing</span>
-        <span class="module-tag teal">Segmentation</span>
-      </div>
-
-      <div class="ai-insight">
-        <div class="ai-insight-icon">✨</div>
-        <div class="ai-insight-body">
-          <div class="ai-insight-label">AI Insight — Copilot Meeting Preparation</div>
-          <div class="ai-insight-text">
-            Copilot for Sales automatically generates a <strong>pre-meeting briefing</strong> the day before a scheduled appointment. It synthesises: the last 3 interactions with the company, open tasks, recent committee activity, industry news (via Bing), and a sentiment analysis of recent email exchanges. The consultant arrives fully prepared without spending 20 minutes searching across systems — turning every member interaction into a strategic, informed conversation.
-          </div>
-        </div>
-      </div>
-
-      <div class="value-strip" style="margin-top:20px">
-        <span class="value-strip-icon">💡</span>
-        <div><strong>Business value:</strong> A unified, cross-channel view of member dialogue transforms DI from a reactive service organisation into a proactive engagement engine. Targeted segmentation and journey automation allow DI to deliver relevant, timely communication to 20,000+ members at scale — without proportionally increasing staff workload. Member satisfaction and retention rates improve when interactions feel personal and informed.</div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- ═══════════════════════════════════════════════════════ -->
-  <!-- TAB 5: FLEXIBILITY -->
-  <!-- ═══════════════════════════════════════════════════════ -->
-  <div class="tab-panel" id="tab-flex">
-
-    <div class="req-card green">
-      <div class="req-header">
-        <div class="req-icon green">⚙️</div>
-        <div class="req-title-group">
-          <div class="req-criterion green">Success Criterion 5</div>
-          <div class="req-title">Flexibility &amp; Configurability</div>
-        </div>
-      </div>
-
-      <div class="two-col">
-        <div>
-          <div class="col-label">DI Requirement</div>
-          <div class="col-body">
-            The solution must adapt to DI's needs without dependency on the vendor. DI must be able to create new fields, change relationships, set up workflows, and modify registration processes without development. The current landscape suffers from excessive customisation debt with MemberCare — the future platform must offer a clear boundary between configuration (self-service) and development (specialist), with the former being the default.
-          </div>
-        </div>
-        <div>
-          <div class="col-label">Dynamics 365 Response</div>
-          <div class="col-body">
-            The <strong>Power Platform</strong> is Dynamics 365's configuration layer — enabling DI's own administrators and business users to extend the system without code. Dataverse's schema is fully customisable via point-and-click tools. New entities, columns, forms, views, business rules, and workflows can all be created by a trained business analyst. Development (code) is reserved for edge-case integrations — not for routine adaptation.
-          </div>
-        </div>
-      </div>
-
-      <div class="col-label">Key Capabilities</div>
-      <ul class="cap-list">
-        <li><strong>Dataverse schema customisation</strong> — Add custom tables, columns, relationships, and choice lists without code. A business analyst can model DI's committee and board position structure in hours. All changes are solution-managed and deployable across environments. <span class="cap-tag">Power Apps (Model-driven)</span></li>
-        <li><strong>Form &amp; view designer</strong> — Drag-and-drop form layout editor. Create role-specific forms showing only relevant fields. Configure list views with custom filters, sorting, and column selection — no SQL required. <span class="cap-tag">Form Designer</span></li>
-        <li><strong>Power Automate — no-code workflows</strong> — 400+ connectors. Build multi-step automation flows with conditions, loops, approvals, and notifications. DI's team can create, test, and modify workflows independently. Version control built in. <span class="cap-tag">Power Automate</span></li>
-        <li><strong>Business rules &amp; validation</strong> — Configure field-level validation, conditional visibility, and mandatory-field logic through a visual rule editor — no JavaScript. Rules fire client-side and server-side for consistency. <span class="cap-tag">Business Rules</span></li>
-        <li><strong>Solution architecture</strong> — All customisations are packaged in solutions that can be transported between Dev/Test/Production environments. Managed solutions protect core configuration; unmanaged layers allow iterative changes. <span class="cap-tag">Solutions</span></li>
-        <li><strong>Citizen developer enablement</strong> — Microsoft's Power Platform training programmes (Power Platform Fundamentals, PL-100, PL-200) allow DI staff to become certified makers — reducing external dependency from day one. <span class="cap-tag">Power Platform</span></li>
-      </ul>
-
-      <div class="module-tags">
-        <span class="module-tag green">Power Platform</span>
-        <span class="module-tag green">Power Apps</span>
-        <span class="module-tag teal">Power Automate</span>
-        <span class="module-tag blue">Dataverse</span>
-      </div>
-
-      <div class="highlight-box">
-        <strong>Configuration vs. development:</strong> Dataverse can be configured (no code) for: data model, forms, views, business rules, basic workflows, security roles, dashboards, and reports. Development (pro-code) is reserved for: complex integrations requiring custom connectors, pixel-perfect custom UI components (PCF controls), and advanced AI model deployment. DI's own CRM team can own the configuration layer day-to-day.
-      </div>
-
-      <div class="value-strip" style="margin-top:20px">
-        <span class="value-strip-icon">🔧</span>
-        <div><strong>Business value:</strong> DI escapes the "customisation debt" trap that has hampered MemberCare. The ability to self-serve on data model changes, workflow adjustments, and form redesigns gives DI's CRM team genuine ownership of the platform — reducing vendor dependency, accelerating iteration cycles, and keeping total cost of ownership predictable as the organisation evolves.</div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- ═══════════════════════════════════════════════════════ -->
-  <!-- TAB 6: INTEGRATION -->
-  <!-- ═══════════════════════════════════════════════════════ -->
-  <div class="tab-panel" id="tab-integration">
-
-    <div class="req-card accent">
-      <div class="req-header">
-        <div class="req-icon accent">🔗</div>
-        <div class="req-title-group">
-          <div class="req-criterion accent">Success Criterion 6</div>
-          <div class="req-title">Integration &amp; Architecture</div>
-        </div>
-      </div>
-
-      <div class="two-col">
-        <div>
-          <div class="col-label">DI Requirement</div>
-          <div class="col-body">
-            MemberCare currently integrates with ~32 systems. The future CRM must provide stable, modern REST APIs and webhook support so DI's existing ecosystem — including Agillic, Power BI, financial systems, event platforms, and Min Side — can connect reliably. DI requires both real-time and batch synchronisation patterns, with input validation at the API layer. All integration documentation must be production-ready.
-          </div>
-        </div>
-        <div>
-          <div class="col-label">Dynamics 365 Response</div>
-          <div class="col-body">
-            Dynamics 365 / Dataverse exposes a fully documented <strong>OData REST API</strong>, a <strong>Web API</strong>, and a rich event-driven <strong>webhook / plugin architecture</strong>. All CRUD operations are available via standard REST. Power Platform's native connectors cover Microsoft 365, Teams, SharePoint, Azure services, and hundreds of third-party systems. For complex integration scenarios, <strong>Azure Integration Services</strong> (API Management, Service Bus, Logic Apps) provides enterprise-grade middleware.
-          </div>
-        </div>
-      </div>
-
-      <div class="col-label">Key Capabilities</div>
-      <ul class="cap-list">
-        <li><strong>OData Web API</strong> — All Dataverse data is accessible via standard OData v4.0 REST endpoints. Full CRUD, filtering, paging, and relationship traversal. Token-secured via Azure AD. Swagger/OpenAPI documentation available. <span class="cap-tag">Web API</span></li>
-        <li><strong>Webhooks &amp; server-side events</strong> — Register webhooks on any entity create/update/delete event. Real-time notification to external systems when a member record changes — no polling required. <span class="cap-tag">Webhooks</span></li>
-        <li><strong>Power Platform connectors</strong> — 400+ certified connectors for Microsoft 365 (Outlook, Teams, SharePoint), Azure (Service Bus, Blob, Functions), and third-party SaaS (Salesforce, SAP, Agillic, etc.). No-code integration for common scenarios. <span class="cap-tag">Power Automate</span></li>
-        <li><strong>Azure Integration Services</strong> — For enterprise-scale integration (replacing MemberCare's 32-system hub), Azure API Management, Service Bus, and Logic Apps provide a managed, observable, and versioned integration layer. Error handling and retry logic built in. <span class="cap-tag">Azure Services</span></li>
-        <li><strong>Real-time vs. batch</strong> — Dataverse supports both: webhooks / plugins for real-time (sub-second) propagation; Azure Data Factory or Power Automate scheduled flows for batch synchronisation. Pattern chosen per integration scenario. <span class="cap-tag">Hybrid Sync</span></li>
-        <li><strong>Power BI native connector</strong> — Dataverse has a certified Power BI connector. DI's existing Power BI reporting for member engagement and operational dashboards connects directly — no intermediate data extract needed. <span class="cap-tag">Power BI</span></li>
-      </ul>
-
-      <div class="module-tags">
-        <span class="module-tag blue">Web API / OData</span>
-        <span class="module-tag teal">Power Automate</span>
-        <span class="module-tag orange">Azure Integration</span>
-        <span class="module-tag green">Power BI</span>
-      </div>
-
-      <div class="ai-insight">
-        <div class="ai-insight-icon">✨</div>
-        <div class="ai-insight-body">
-          <div class="ai-insight-label">AI Insight — Integration Architecture Recommendation</div>
-          <div class="ai-insight-text">
-            Rather than recreating MemberCare's direct point-to-point integrations (which created DI's current technical debt), the recommended pattern is <strong>Dataverse as the integration hub</strong>: all systems read/write to Dataverse via APIs, events are propagated via webhooks to an Azure Service Bus topic, and downstream systems subscribe. This event-driven architecture decouples systems, eliminates synchronisation delays, and provides an audit trail for all data changes — addressing the core data quality challenges identified in DI's pre-analysis.
-          </div>
-        </div>
-      </div>
-
-      <div class="value-strip" style="margin-top:20px">
-        <span class="value-strip-icon">🔌</span>
-        <div><strong>Business value:</strong> Replacing 32 bespoke MemberCare integrations with a standards-based API and event architecture reduces technical debt dramatically. The integration layer becomes maintainable, observable, and vendor-independent. DI's IT team can onboard new systems in days rather than months, and synchronisation delays — a primary source of current data quality issues — are eliminated through event-driven real-time propagation.</div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- ═══════════════════════════════════════════════════════ -->
-  <!-- TAB 7: USE CASES -->
-  <!-- ═══════════════════════════════════════════════════════ -->
-  <div class="tab-panel" id="tab-usecases">
-
-    <!-- UC1 -->
     <div class="uc-card">
       <div class="uc-header">
         <div class="uc-num">1</div>
         <div>
-          <div class="uc-title">Use Case 1 — Navigating DI's Data Model</div>
-          <div class="uc-desc">How Dynamics 365 structures and navigates DI's complex member hierarchy — from company to department, committee, and board position.</div>
+          <div class="uc-title">Use Case 1 — Navigating DI's Data Model (50 min)</div>
+          <div class="uc-desc">Concrete insight into how D365 supports DI's need for a coherent data model, navigation, and role-based access — plus design choices and trade-offs ahead of the RFI.</div>
         </div>
       </div>
       <div class="uc-body">
 
+        <div class="delivery-legend">
+          <strong>Delivery model:</strong>
+          <div class="dl-item"><span class="badge-std">Standard</span> Included out of the box, no configuration needed</div>
+          <div class="dl-item"><span class="badge-cfg">Configure</span> Possible without code via Power Platform tools</div>
+          <div class="dl-item"><span class="badge-dev">Custom</span> Requires pro-code development or specialist work</div>
+        </div>
+
         <div class="highlight-box">
-          <strong>DI scenario:</strong> A relationship manager needs to view a member company, navigate to its departments, find which committees its employees participate in, see their board positions, and then log a new contact activity — all within a single session, without switching systems.
+          <strong>DI scenario:</strong> A relationship manager opens a member company, navigates to its departments, finds which committees its employees participate in, sees their board positions, gets a dashboard of their assigned portfolio, and logs an activity — all in one session. The system must reflect the exact complexity of DI's organisational structure.
         </div>
 
         <div class="uc-steps">
           <div class="uc-step">
             <div class="uc-step-num">Step 1</div>
             <div class="uc-step-title">Open Account Record</div>
-            <div class="uc-step-body">Search for the company by name or CVR. Account page opens showing company details, engagement score, relationship manager, and activity timeline.</div>
+            <div class="uc-step-body">Search by name or CVR. Account page opens with engagement score, relationship manager, activity timeline, and Copilot summary.</div>
           </div>
           <div class="uc-step">
             <div class="uc-step-num">Step 2</div>
             <div class="uc-step-title">Navigate to Departments</div>
-            <div class="uc-step-body">Sub-grid "Departments / Subsidiaries" shows child accounts. Click to drill into a department record without leaving context.</div>
+            <div class="uc-step-body">Sub-grid shows child accounts (departments). Click to drill in without losing context. Parent relationship shown in breadcrumb.</div>
           </div>
           <div class="uc-step">
             <div class="uc-step-num">Step 3</div>
             <div class="uc-step-title">View Contacts &amp; Roles</div>
-            <div class="uc-step-body">Contacts sub-grid shows all persons linked to the company/department. Each contact shows their role, committee memberships, and last interaction.</div>
+            <div class="uc-step-body">All persons linked to company/department with their role, last interaction date, and committee memberships listed inline.</div>
           </div>
           <div class="uc-step">
             <div class="uc-step-num">Step 4</div>
             <div class="uc-step-title">Committee &amp; Board View</div>
-            <div class="uc-step-body">Related "Committees" sub-grid shows which committees this company participates in, with meeting history and participation status.</div>
+            <div class="uc-step-body">Related Committees sub-grid shows participation, meeting history, and board positions — all in one view.</div>
           </div>
           <div class="uc-step">
             <div class="uc-step-num">Step 5</div>
-            <div class="uc-step-title">Role-based Dashboard</div>
-            <div class="uc-step-body">Relationship manager's dashboard: 20 assigned companies ranked by engagement risk, upcoming activities, and Copilot next-action suggestions.</div>
+            <div class="uc-step-title">Relationship Manager Dashboard</div>
+            <div class="uc-step-body">Portfolio view: 20 assigned companies, engagement risk ranking, upcoming activities, and Copilot next-action suggestions.</div>
           </div>
           <div class="uc-step">
             <div class="uc-step-num">Step 6</div>
             <div class="uc-step-title">Log Contact Activity</div>
-            <div class="uc-step-body">Quick-create activity linked to company and contact. Copilot suggests topic tags based on conversation context. Saved in one click.</div>
+            <div class="uc-step-body">Quick-create activity linked to company and contact. AI suggests topic tags. Saved in one click.</div>
           </div>
         </div>
 
-        <div class="col-label">D365 Data Model — Mapped to DI Hierarchy</div>
+        <div class="col-label">Data Model Capabilities — Standard · Configure · Custom</div>
         <ul class="cap-list">
-          <li><strong>Account (Organisation)</strong> → DI member company. Parent/child relationships model holding structures and subsidiaries. CVR number as unique identifier. <span class="cap-tag">Dataverse</span></li>
-          <li><strong>Account (Department)</strong> → Modelled as child Account with account type = "Department". Linked to parent company via built-in parent account field. <span class="cap-tag">Hierarchy</span></li>
-          <li><strong>Contact</strong> → Individual persons linked to one or more companies via Account Relationship (N:N). Role field specifies the nature of the relationship. <span class="cap-tag">Dataverse</span></li>
-          <li><strong>Custom: Committee</strong> → New Dataverse table. N:N relationship to Contact (with participation role) and to Account. Tracks meeting history and participation status. <span class="cap-tag">Custom Table</span></li>
-          <li><strong>Custom: Board Position</strong> → New Dataverse table or relationship to Committee, with position type (Chair, Member, Observer) and date range. <span class="cap-tag">Custom Table</span></li>
-          <li><strong>Security roles</strong> → Each user group (relationship manager, member service, admin) gets a custom security role controlling which records and fields they can read/write. <span class="cap-tag">Security Roles</span></li>
+          <li>
+            <span><strong>Account hierarchy</strong> — Account (company) → child Account (department/subsidiary), linked via built-in parent account field. CVR number as unique identifier field.</span>
+            <div class="cap-tags"><span class="badge-std">Standard</span><span class="cap-tag blue">Dataverse</span></div>
+          </li>
+          <li>
+            <span><strong>Contact linked to multiple companies</strong> — Built-in Account Relationship (N:N) allows one contact to be linked to multiple companies simultaneously, with a role field on each relationship.</span>
+            <div class="cap-tags"><span class="badge-std">Standard</span><span class="cap-tag blue">Dataverse</span></div>
+          </li>
+          <li>
+            <span><strong>Committee entity</strong> — New custom table in Dataverse with N:N relationship to Contact (participation role, start/end date) and N:N to Account (sponsoring company). Created via point-and-click table designer.</span>
+            <div class="cap-tags"><span class="badge-cfg">Configure</span><span class="cap-tag blue">Custom Table</span></div>
+          </li>
+          <li>
+            <span><strong>Board position entity</strong> — Custom table (or relationship type on Committee member) with position type field (Chair, Member, Observer) and date range. No code required.</span>
+            <div class="cap-tags"><span class="badge-cfg">Configure</span><span class="cap-tag blue">Custom Table</span></div>
+          </li>
+          <li>
+            <span><strong>Duplicate detection rules</strong> — Configurable matching rules on name, email, CVR number. Alerts users at save. Admin can configure merge policies.</span>
+            <div class="cap-tags"><span class="badge-cfg">Configure</span><span class="cap-tag blue">Dataverse</span></div>
+          </li>
+          <li>
+            <span><strong>CVR data enrichment</strong> — Automated lookup and auto-population of company data from the Danish Business Register (CVR) via Power Automate + CVR API connector. Triggers on company create or manual refresh.</span>
+            <div class="cap-tags"><span class="badge-cfg">Configure</span><span class="cap-tag teal">Power Automate</span></div>
+          </li>
+          <li>
+            <span><strong>Role-based security and field-level permissions</strong> — Security roles control entity-level access (read/write/delete) and field-level visibility per user group. 7 DI user groups = 7 custom security role profiles.</span>
+            <div class="cap-tags"><span class="badge-cfg">Configure</span><span class="cap-tag blue">Security Roles</span></div>
+          </li>
+          <li>
+            <span><strong>Relationship manager portfolio dashboard</strong> — System chart + dashboard showing assigned companies, engagement scores, overdue activities. Configurable per user using built-in dashboard editor.</span>
+            <div class="cap-tags"><span class="badge-cfg">Configure</span><span class="cap-tag blue">Dashboards</span></div>
+          </li>
+          <li>
+            <span><strong>AI-powered engagement scoring</strong> — Customer Insights – Data computes engagement scores from event attendance, newsletter opens, activity frequency, and interaction recency. Surfaces on account record as a calculated field.</span>
+            <div class="cap-tags"><span class="badge-dev">Custom</span><span class="cap-tag orange">Customer Insights</span></div>
+          </li>
+          <li>
+            <span><strong>Cross-navigation between company → department → committee → person</strong> — Sub-grids and quick-view panels on forms allow drilling between related entities. All built via the form designer without code.</span>
+            <div class="cap-tags"><span class="badge-cfg">Configure</span><span class="cap-tag blue">Form Designer</span></div>
+          </li>
         </ul>
 
         <div class="ai-insight">
           <div class="ai-insight-icon">✨</div>
           <div class="ai-insight-body">
-            <div class="ai-insight-label">AI Insight — Copilot in Navigation</div>
+            <div class="ai-insight-label">AI Insight — Copilot Account Summary</div>
             <div class="ai-insight-text">
-              When a relationship manager opens a company record, <strong>Copilot generates a natural-language summary</strong> of the account: "ACME A/S — 3 active contacts, member since 2018, last contact 47 days ago (phone), currently participating in 2 committees. Engagement score: 72/100 (↓8 from last quarter). Suggested action: Schedule a retention call before Q3 renewal." This eliminates the need to manually scan multiple sub-grids to build context.
+              When a relationship manager opens a company record, <strong>Copilot generates a natural-language account summary in seconds</strong>: last interaction, open tasks, committee activity, engagement score trend, and a suggested next action — all without the user scanning multiple sub-grids. This is a <span class="badge-std">Standard</span> capability in D365 Sales with Copilot enabled — no configuration needed.
             </div>
           </div>
         </div>
-      </div>
-    </div>
 
-    <!-- UC2 -->
-    <div class="uc-card">
-      <div class="uc-header">
-        <div class="uc-num">2</div>
-        <div>
-          <div class="uc-title">Use Case 2 — Registering Member Contact</div>
-          <div class="uc-desc">How Dynamics 365 automates the capture and registration of member interactions — phone, email, and meeting — with minimal manual effort.</div>
-        </div>
-      </div>
-      <div class="uc-body">
-
-        <div class="highlight-box">
-          <strong>DI scenario:</strong> A consultant receives a phone call from a member, answers questions, makes a note, and needs this interaction logged against the correct company and contact — automatically, without switching to CRM during the call.
-        </div>
-
-        <div class="uc-steps">
-          <div class="uc-step">
-            <div class="uc-step-num">Phone Call</div>
-            <div class="uc-step-title">Automatic Recognition</div>
-            <div class="uc-step-body">Teams Phone identifies the calling number. CRM pops a notification showing the matched contact and company. The consultant clicks to open the record — before answering.</div>
-          </div>
-          <div class="uc-step">
-            <div class="uc-step-num">During Call</div>
-            <div class="uc-step-title">Conversation Intelligence</div>
-            <div class="uc-step-body">Teams records and transcribes the call (with consent). Copilot tracks topics discussed in real time.</div>
-          </div>
-          <div class="uc-step">
-            <div class="uc-step-num">After Call</div>
-            <div class="uc-step-title">AI Summary</div>
-            <div class="uc-step-body">Copilot generates a call summary with key topics, sentiment, and suggested follow-up. The consultant reviews and confirms in 10 seconds.</div>
-          </div>
-          <div class="uc-step">
-            <div class="uc-step-num">Email</div>
-            <div class="uc-step-title">Outlook Auto-Track</div>
-            <div class="uc-step-body">D365 App for Outlook detects the member company in the email. One click tracks it to CRM — linked to company and contact. No manual entry.</div>
-          </div>
-          <div class="uc-step">
-            <div class="uc-step-num">Meeting Prep</div>
-            <div class="uc-step-title">Pre-Meeting Briefing</div>
-            <div class="uc-step-body">Morning of the meeting, Copilot delivers a briefing: recent interactions, open tasks, committee activity, and 3 suggested talking points.</div>
-          </div>
-          <div class="uc-step">
-            <div class="uc-step-num">Role Filter</div>
-            <div class="uc-step-title">Relevant Activities Only</div>
-            <div class="uc-step-body">Activity timeline filtered by role: relationship managers see advisory interactions; they are not shown marketing emails and newsletters the company received.</div>
-          </div>
-        </div>
-
-        <div class="col-label">D365 Features Demonstrated</div>
-        <ul class="cap-list">
-          <li><strong>Dynamics 365 App for Outlook</strong> — Track emails, meetings, and tasks from Outlook directly to CRM records. Works with Exchange Online and on-premises. <span class="cap-tag">Outlook Integration</span></li>
-          <li><strong>Conversation Intelligence (Teams Phone)</strong> — Real-time transcription, topic detection, and AI summary of phone calls. Integrated with Teams Phone System. <span class="cap-tag">Conversation Intelligence</span></li>
-          <li><strong>Copilot meeting summarisation</strong> — After Teams meetings, auto-generates structured notes in CRM: decisions, action items, and follow-ups. Draft editable before saving. <span class="cap-tag">Copilot for Sales</span></li>
-          <li><strong>Activity categories</strong> — Each activity tagged by type: Advisory, Event, Newsletter, Support. Filters applied per user role so consultants only see relevant interaction history. <span class="cap-tag">Activity Management</span></li>
-          <li><strong>Calendar integration</strong> — CRM activities sync bidirectionally with Teams/Outlook calendar. Meeting updates reflect in both systems. Configurable per-user calendar sharing permissions. <span class="cap-tag">Calendar Sync</span></li>
-        </ul>
-
-        <div class="ai-insight">
-          <div class="ai-insight-icon">✨</div>
-          <div class="ai-insight-body">
-            <div class="ai-insight-label">AI Insight — Zero-Friction Registration</div>
-            <div class="ai-insight-text">
-              The goal is <strong>zero manual registration burden</strong>. With Teams Phone + Conversation Intelligence + Copilot summarisation + Outlook auto-tracking, a consultant's interactions are captured automatically. The only human action required is a brief review of the AI-generated summary before saving. This transforms CRM adoption: instead of asking consultants to "log their activities," the system logs them automatically — and asks for a 10-second confirmation.
-            </div>
-          </div>
+        <div class="value-strip" style="margin-top:18px">
+          <span class="value-strip-icon">📈</span>
+          <div><strong>Dialogue talking point:</strong> The core member hierarchy (company → department → contact) is standard. The DI-specific layers (committee, board position, engagement scoring) require configuration but no development. The only custom development item in UC1 is the engagement score computation if DI wants a truly sophisticated multi-signal model beyond what Customer Insights provides out of the box.</div>
         </div>
       </div>
     </div>
 
   </div>
 
-  <!-- ═══════════════════════════════════════════════════════ -->
-  <!-- TAB 8: APPENDIX -->
-  <!-- ═══════════════════════════════════════════════════════ -->
-  <div class="tab-panel" id="tab-appendix">
+  <!-- ══════════════════════════════════════════ -->
+  <!-- TAB: USE CASE 2 -->
+  <!-- ══════════════════════════════════════════ -->
+  <div class="tab-panel" id="tab-uc2">
 
-    <!-- Event Module -->
-    <div class="req-card blue">
-      <div class="req-header">
-        <div class="req-icon blue">🎟️</div>
-        <div class="req-title-group">
-          <div class="req-criterion blue">Appendix A</div>
-          <div class="req-title">Event Module</div>
-        </div>
-      </div>
-
-      <div class="two-col">
+    <div class="uc-card">
+      <div class="uc-header">
+        <div class="uc-num">2</div>
         <div>
-          <div class="col-label">DI Questions</div>
-          <div class="col-body">
-            Does the vendor have an event module or preferred partner? How does the solution cover the event flow — creation, pricing, registration, participant management, and communication? How does event data integrate with CRM (companies, contacts, history)?
-          </div>
-        </div>
-        <div>
-          <div class="col-label">Dynamics 365 Response</div>
-          <div class="col-body">
-            <strong>Dynamics 365 Customer Insights – Journeys</strong> includes a full event management module — natively integrated with Dataverse so all registrations and attendance data are directly linked to CRM records (Account/Contact). No additional integration required. DI's 2,000+ annual events can be managed end-to-end from within the same platform.
-          </div>
+          <div class="uc-title">Use Case 2 — Recording Member Interactions (50 min)</div>
+          <div class="uc-desc">How D365 reduces manual registration, improves data quality, and enables value-creating member dialogue through automation and AI. Explicit standard vs. configurable vs. custom transparency.</div>
         </div>
       </div>
+      <div class="uc-body">
 
-      <div class="col-label">Event Module Capabilities</div>
-      <ul class="cap-list">
-        <li><strong>Event creation &amp; management</strong> — Create events with sessions, speakers, sponsors, venues, and capacity limits. Supports single sessions, multi-day conferences, and recurring formats. <span class="cap-tag">Event Management</span></li>
-        <li><strong>Registration &amp; ticketing</strong> — Custom registration forms with conditional fields. Multiple ticket types (free, paid, member discount). Waitlist management. QR code check-in via mobile app. <span class="cap-tag">Registration</span></li>
-        <li><strong>Pricing &amp; discounts</strong> — Tiered pricing by member type, early bird, group bookings. Integration with Dynamics 365 Finance for invoicing and payment. <span class="cap-tag">Pricing</span></li>
-        <li><strong>Communication journeys</strong> — Automated pre-event reminders, post-event surveys, and follow-up journeys triggered by attendance status. Personalised per registrant. <span class="cap-tag">Journey Orchestration</span></li>
-        <li><strong>CRM integration — native</strong> — Every registration creates/updates a CRM activity linked to the registrant's Contact and their Account. Attendance history visible on the member timeline immediately. No batch sync needed. <span class="cap-tag">Native Integration</span></li>
-        <li><strong>Teams Webinar integration</strong> — Online events can be hosted via Microsoft Teams Webinars, with automatic registration sync and attendance tracking back to CRM. <span class="cap-tag">Teams Webinar</span></li>
-        <li><strong>Reporting &amp; analytics</strong> — Event performance dashboards in Power BI: registration rates, attendance, revenue by event type, and member engagement per event series. <span class="cap-tag">Power BI</span></li>
-      </ul>
+        <div class="delivery-legend">
+          <strong>Delivery model:</strong>
+          <div class="dl-item"><span class="badge-std">Standard</span> Included out of the box</div>
+          <div class="dl-item"><span class="badge-cfg">Configure</span> No-code configuration needed</div>
+          <div class="dl-item"><span class="badge-dev">Custom</span> Requires development</div>
+        </div>
 
-      <div class="ai-insight">
-        <div class="ai-insight-icon">✨</div>
-        <div class="ai-insight-body">
-          <div class="ai-insight-label">AI Insight — Event as Engagement Signal</div>
-          <div class="ai-insight-text">
-            Event attendance is one of DI's most powerful member engagement signals. When event data lives natively in Dataverse (rather than in a separate system), <strong>Customer Insights can incorporate attendance patterns into the engagement score</strong> — e.g., a company whose employees have stopped attending events after attending 10+ per year is a retention risk. Copilot flags this automatically, allowing relationship managers to proactively reconnect before the next renewal cycle.
+        <div class="highlight-box">
+          <strong>DI scenario:</strong> A consultant receives a phone call, handles it, and needs the interaction logged against the correct company and contact with minimal manual effort. Separately, they must prepare for a member meeting by quickly getting a complete picture of all previous interactions — filtered to what is relevant to their role, without noise from marketing communications.
+        </div>
+
+        <div class="uc-steps">
+          <div class="uc-step">
+            <div class="uc-step-num">Inbound call</div>
+            <div class="uc-step-title">Auto Recognition</div>
+            <div class="uc-step-body">Teams Phone identifies caller. CRM notification pops with matched contact and company before the consultant answers.</div>
+          </div>
+          <div class="uc-step">
+            <div class="uc-step-num">During call</div>
+            <div class="uc-step-title">Live Transcription</div>
+            <div class="uc-step-body">Teams records and transcribes (with consent). Copilot tracks topics discussed in real time — no manual notes needed.</div>
+          </div>
+          <div class="uc-step">
+            <div class="uc-step-num">After call</div>
+            <div class="uc-step-title">AI Summary → CRM</div>
+            <div class="uc-step-body">Copilot generates structured summary: key topics, sentiment, action items. Consultant reviews in 10 seconds and saves to CRM.</div>
+          </div>
+          <div class="uc-step">
+            <div class="uc-step-num">Email</div>
+            <div class="uc-step-title">Outlook Auto-Track</div>
+            <div class="uc-step-body">D365 App for Outlook detects the member company. One click tracks email to CRM — linked to company and contact.</div>
+          </div>
+          <div class="uc-step">
+            <div class="uc-step-num">Meeting prep</div>
+            <div class="uc-step-title">Copilot Briefing</div>
+            <div class="uc-step-body">Morning of meeting: Copilot delivers a briefing with recent interactions, open tasks, committee activity, and 3 suggested talking points.</div>
+          </div>
+          <div class="uc-step">
+            <div class="uc-step-num">Role filter</div>
+            <div class="uc-step-title">Relevant Activities Only</div>
+            <div class="uc-step-body">Timeline filtered by activity category and user role. Relationship managers see advisory interactions — not newsletter sends or marketing emails.</div>
           </div>
         </div>
-      </div>
 
-      <div class="module-tags">
-        <span class="module-tag orange">Customer Insights – Journeys</span>
-        <span class="module-tag blue">Event Management</span>
-        <span class="module-tag teal">Teams Webinar</span>
-        <span class="module-tag green">Power BI</span>
+        <div class="col-label">Automation &amp; Registration Capabilities — Standard · Configure · Custom</div>
+        <ul class="cap-list">
+          <li>
+            <span><strong>Dynamics 365 App for Outlook</strong> — Track emails and meetings from Outlook to CRM with one click. Auto-suggests the related account and contact based on email address.</span>
+            <div class="cap-tags"><span class="badge-std">Standard</span><span class="cap-tag blue">Outlook Add-in</span></div>
+          </li>
+          <li>
+            <span><strong>Bidirectional calendar sync</strong> — CRM activities sync with Teams/Outlook calendar. Create a meeting in CRM → it appears in Outlook. Accept a Teams invite → activity created in CRM. Configurable per-user sharing permissions.</span>
+            <div class="cap-tags"><span class="badge-std">Standard</span><span class="cap-tag blue">Calendar Sync</span></div>
+          </li>
+          <li>
+            <span><strong>Copilot meeting summarisation (Teams)</strong> — After a Teams meeting, Copilot automatically generates a structured summary with decisions, action items, and follow-ups. Draft editable before saving to CRM.</span>
+            <div class="cap-tags"><span class="badge-std">Standard</span><span class="cap-tag purple">Copilot for Sales</span></div>
+          </li>
+          <li>
+            <span><strong>Conversation Intelligence — call transcription &amp; AI summary</strong> — Teams Phone records, transcribes, and analyses calls. Copilot extracts topics, sentiment, and next steps. Linked to CRM activity record.</span>
+            <div class="cap-tags"><span class="badge-std">Standard</span><span class="cap-tag orange">Conv. Intelligence</span></div>
+          </li>
+          <li>
+            <span><strong>Prerequisite: Teams Phone as telephony layer</strong> — Conversation Intelligence requires Teams Phone (or a certified Teams-connected CCaaS provider). If DI uses a different phone system, transcription is not available natively.</span>
+            <div class="cap-tags"><span class="badge-dev">Custom</span><span class="cap-tag orange">Teams Phone req.</span></div>
+          </li>
+          <li>
+            <span><strong>Copilot pre-meeting briefing</strong> — On the morning of a scheduled meeting, Copilot generates an account brief: last interactions, open tasks, committee activity, and talking point suggestions — all from Dataverse.</span>
+            <div class="cap-tags"><span class="badge-std">Standard</span><span class="cap-tag purple">Copilot for Sales</span></div>
+          </li>
+          <li>
+            <span><strong>Activity category filtering by user role</strong> — Custom activity categories (Advisory, Event, Newsletter, Support, Training) allow each user group to filter the timeline to only the interaction types relevant to their role.</span>
+            <div class="cap-tags"><span class="badge-cfg">Configure</span><span class="cap-tag blue">Activity Mgmt</span></div>
+          </li>
+          <li>
+            <span><strong>Auto-workflows on activity registration</strong> — Trigger: activity of type "Advisory" saved → check if company has been contacted in last 90 days → if not, alert relationship manager. All configurable in Power Automate without code.</span>
+            <div class="cap-tags"><span class="badge-cfg">Configure</span><span class="cap-tag teal">Power Automate</span></div>
+          </li>
+          <li>
+            <span><strong>Guided registration flow (Business Process Flow)</strong> — Step-by-step guided flow for structured activity registration: topic selection, outcome, follow-up date, linked contact. Enforces correct data capture without restricting flexibility.</span>
+            <div class="cap-tags"><span class="badge-cfg">Configure</span><span class="cap-tag blue">BPF</span></div>
+          </li>
+          <li>
+            <span><strong>Engagement signal aggregation (multi-source)</strong> — Combining signals from event attendance, email opens, portal activity, and CRM interactions into one engagement score requires Customer Insights – Data setup and a custom unified profile definition.</span>
+            <div class="cap-tags"><span class="badge-dev">Custom</span><span class="cap-tag orange">Customer Insights</span></div>
+          </li>
+        </ul>
+
+        <div class="ai-insight">
+          <div class="ai-insight-icon">✨</div>
+          <div class="ai-insight-body">
+            <div class="ai-insight-label">AI Insight — Zero Manual Registration</div>
+            <div class="ai-insight-text">
+              The target state: a consultant's interactions are captured <strong>automatically</strong> via Teams and Outlook, with the only human action being a brief AI-summary review before saving (≈10 seconds). This is achievable today with D365 + Teams Phone + Copilot for Sales — all <span class="badge-std">Standard</span> capabilities. The more important question for DI is not <em>can it be done</em> but <em>does DI use Teams Phone</em> — that is the critical prerequisite for the phone side of this scenario.
+            </div>
+          </div>
+        </div>
+
+        <div class="value-strip" style="margin-top:18px">
+          <span class="value-strip-icon">⚡</span>
+          <div><strong>Dialogue talking point:</strong> Outlook auto-tracking, calendar sync, Teams meeting summarisation, and Copilot briefings are all standard. Activity category configuration and automation flows are configure-level. The only custom work is the multi-source engagement scoring and, conditionally, telephony integration if DI doesn't use Teams Phone.</div>
+        </div>
       </div>
     </div>
 
-    <!-- Membership Fee Logic -->
-    <div class="req-card teal" style="margin-top:24px">
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- TAB: CHALLENGE SESSION -->
+  <!-- ══════════════════════════════════════════ -->
+  <div class="tab-panel" id="tab-challenge">
+
+    <div class="req-card accent">
+      <div class="req-header">
+        <div class="req-icon accent">🎯</div>
+        <div>
+          <div class="req-criterion accent">Agenda Item 6 · 20 minutes</div>
+          <div class="req-title">Vendor Perspective &amp; Challenge Session</div>
+        </div>
+      </div>
+      <div class="info-box">
+        <strong>Agenda expectation:</strong> DI wants genuine market insight and honest input that can challenge current assumptions and calibrate ambition. The session explicitly asks for what we would challenge, what the risks are, where the solution is less suited, what typical mistakes organisations like DI make, and which integration/architecture decisions are most critical to clarify ahead of the RFI. This is not a Q&amp;A session — it is a consultative challenge.
+      </div>
+    </div>
+
+    <div style="margin-top:24px">
+
+      <div class="challenge-item">
+        <div class="challenge-q" onclick="toggleChallenge(this)">
+          <div class="challenge-q-num">1</div>
+          <div class="challenge-q-text">What would you challenge in DI's approach or setup to increase the chances of success?</div>
+          <div class="challenge-arrow">▼</div>
+        </div>
+        <div class="challenge-a">
+          <strong>We would challenge three assumptions directly:</strong>
+          <ul>
+            <li><strong>Assumption: replacing the system solves the data quality problem.</strong> DI's pre-analysis cites fragmented data models and synchronisation delays as core issues. But these are partly organisational — if the 1,000 users don't adopt the new system consistently, bad data will re-emerge in any platform. A D365 implementation without a funded change management and data governance programme will reproduce the same problems in a more expensive wrapper. Our challenge: <em>Where is the plan for people and process change, not just technology change?</em></li>
+            <li><strong>Assumption: all 32 MemberCare integrations need to be rebuilt.</strong> A phased integration strategy — where only mission-critical integrations go live on day one — is almost always safer than a big-bang migration. Our challenge: <em>Is DI prepared to accept a period of reduced integration coverage in exchange for a faster, lower-risk go-live?</em></li>
+            <li><strong>Assumption: the RFI will be vendor-neutral.</strong> If DI is already heavily invested in Microsoft 365, Teams, and Azure, a non-Microsoft CRM will require significant integration effort for what D365 delivers natively. We would challenge DI to explicitly quantify the integration cost premium of a non-Microsoft choice before the RFI concludes.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="challenge-item">
+        <div class="challenge-q" onclick="toggleChallenge(this)">
+          <div class="challenge-q-num">2</div>
+          <div class="challenge-q-text">What are the biggest risks or pitfalls in a project like this?</div>
+          <div class="challenge-arrow">▼</div>
+        </div>
+        <div class="challenge-a">
+          <strong>Based on comparable membership-organisation CRM programmes, the three most common failure modes are:</strong>
+          <ul>
+            <li><strong>Data migration underestimated.</strong> Moving 14 years of MemberCare data — with its custom schema, custom integrations, and accumulated data quality issues — is consistently the activity that consumes the most budget and causes the most delays. Projects that treat data migration as a technical task rather than a business-led programme almost always overrun. <em>Mitigation: commission a data assessment before the RFI, not after.</em></li>
+            <li><strong>User adoption failure.</strong> D365 is a capable but complex platform. A 1,000-user rollout across 7 user groups with different workflows, roles, and data needs is a significant change programme. Organisations that skimp on training, role-based configuration, and post-go-live support see adoption plateau at 40–60%. <em>Mitigation: budget change management as 15–20% of the total implementation cost from day one.</em></li>
+            <li><strong>Scope creep driven by configurability.</strong> The Power Platform's low-code extensibility is a strength — but it can become a liability when every business unit wants to add their own customisations during implementation. Without a strong governance model, the platform accrues technical debt faster than MemberCare did. <em>Mitigation: appoint a Power Platform governance owner in the DI team before go-live.</em></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="challenge-item">
+        <div class="challenge-q" onclick="toggleChallenge(this)">
+          <div class="challenge-q-num">3</div>
+          <div class="challenge-q-text">Where is Dynamics 365 particularly strong — and where is it less well suited to DI's needs?</div>
+          <div class="challenge-arrow">▼</div>
+        </div>
+        <div class="challenge-a">
+          <strong>Honest assessment:</strong>
+          <ul>
+            <li><strong>Particularly strong:</strong> Microsoft ecosystem coherence (Teams + Outlook + SharePoint = zero integration cost); Power Platform self-service configurability; Copilot for Sales (genuinely production-grade today); Dataverse as a unified data platform for all of DI's data; enterprise security, compliance, and GDPR tooling; scalability to DI's user volumes without per-seat performance constraints.</li>
+            <li><strong>Less well suited:</strong> <em>Native membership/association-specific features.</em> D365 Sales is built for B2B commercial sales organisations. Concepts like membership tiers, quarterly fee calculation, committee governance, and annual event programmes are not native — they require configuration. DI's procurement team should evaluate whether the configuration effort is worth the platform's other strengths, compared to a purpose-built membership management system (e.g., iMIS, MemberSuite, Salesforce for Nonprofits).</li>
+            <li><strong>Less well suited:</strong> <em>Deep event management at scale.</em> 2,000+ annual events with paid ticketing, complex capacity models, and multi-channel registration workflows push beyond what Customer Insights – Journeys was designed for. A specialist event platform integrated via API is likely the better long-term answer for DI's event volume.</li>
+            <li><strong>Maturity gap:</strong> Some Copilot features are still maturing. Copilot in Customer Insights – Journeys (real-time personalisation at scale) is less mature than Copilot in D365 Sales. DI should validate specific AI features in a sandbox environment before committing.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="challenge-item">
+        <div class="challenge-q" onclick="toggleChallenge(this)">
+          <div class="challenge-q-num">4</div>
+          <div class="challenge-q-text">What typical mistakes do you see organisations like DI make in projects like this?</div>
+          <div class="challenge-arrow">▼</div>
+        </div>
+        <div class="challenge-a">
+          <strong>Five patterns we see repeatedly in membership-organisation CRM programmes:</strong>
+          <ul>
+            <li><strong>Trying to replicate MemberCare in the new system.</strong> The temptation is to map every existing field, every existing workflow, and every existing screen to the new platform. This produces a D365 that behaves like a slow, expensive version of the old system. <em>The right approach: redesign processes around the new platform's strengths, not the old system's limitations.</em></li>
+            <li><strong>Treating the CRM project as an IT project.</strong> The most successful CRM implementations are business-led, with IT in a delivery support role. DI's core project team includes CRM &amp; Loyalty leads — that is the right structure. The risk is if business ownership weakens during implementation when day-to-day demands compete with project work.</li>
+            <li><strong>Selecting too many modules on day one.</strong> D365 Sales + Customer Insights – Journeys + Customer Service + Power Platform + Copilot, all in scope from day one, creates an implementation programme that is very hard to deliver within time and budget. <em>Recommendation: define a clear MVP scope for the initial go-live and a post-go-live enhancement roadmap.</em></li>
+            <li><strong>Underestimating the Dataverse data model design phase.</strong> Getting the entity relationships right — especially DI's committee and board position model — before build begins is critical. Retrofitting a data model after data migration has started is expensive. This phase deserves 4–6 weeks of focused workshops before any configuration begins.</li>
+            <li><strong>No dedicated internal system owner post go-live.</strong> DI will accumulate configuration changes over time. Without a dedicated Power Platform administrator who owns the platform, governs changes, and maintains documentation, the system will drift back toward MemberCare's state of "nobody really understands it" within 18–24 months.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="challenge-item">
+        <div class="challenge-q" onclick="toggleChallenge(this)">
+          <div class="challenge-q-num">5</div>
+          <div class="challenge-q-text">Which integration or architectural decisions are most critical to clarify ahead of the RFI?</div>
+          <div class="challenge-arrow">▼</div>
+        </div>
+        <div class="challenge-a">
+          <strong>Five architectural decisions that will shape the entire project:</strong>
+          <ul>
+            <li><strong>Telephony platform decision.</strong> Conversation Intelligence and automatic call logging require Teams Phone (or a certified CCaaS integration). If DI uses a different telephony provider, this must be resolved — or the phone-automation capability of UC2 must be descoped. This decision should be made <em>before</em> the RFI, not after vendor selection.</li>
+            <li><strong>Integration hub architecture.</strong> Will DI adopt Dataverse as the system of record (all systems read/write via Dataverse APIs), or maintain a separate integration bus? The former is simpler and more cost-effective for a Microsoft-stack organisation; the latter may be required if DI's existing Azure environment already has a mature API management layer. Clarify this before writing RFI integration requirements.</li>
+            <li><strong>Finance system connection.</strong> Membership fees are calculated in CRM and invoiced in a financial system. Whether that is D365 Finance, Business Central, or a third-party ERP will determine the invoicing integration complexity. If DI is also considering an ERP change, coordinating the timelines is critical.</li>
+            <li><strong>Min Side (member portal) rebuild vs. integrate.</strong> The current Min Side is a self-built portal. Should it be rebuilt on Power Pages (part of the Power Platform, natively connected to Dataverse), or maintained as a separate application integrated via API? Power Pages reduces integration complexity but requires UX design work. This decision shapes the integration scope significantly.</li>
+            <li><strong>Event platform decision.</strong> Is the event module in scope for the CRM replacement, or managed separately? If in scope, decide upfront whether to use Customer Insights – Journeys events (configurable, native) or a specialist platform (Cvent, Eventbrite) integrated via Dataverse. This determines one of the largest integration workstreams in the project.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- TAB: COMMERCIAL FRAMEWORK -->
+  <!-- ══════════════════════════════════════════ -->
+  <div class="tab-panel" id="tab-commercial">
+
+    <div class="req-card green">
+      <div class="req-header">
+        <div class="req-icon green">💰</div>
+        <div>
+          <div class="req-criterion green">Agenda Item 7 · 5 minutes</div>
+          <div class="req-title">Commercial Framework — Pricing Model, Implementation &amp; Timeline</div>
+        </div>
+      </div>
+
+      <div class="info-box">
+        <strong>Agenda expectation:</strong> Overview of the pricing model and key cost drivers, implementation approach, and typical timelines. Not detailed pricing — a framework for understanding the commercial structure.
+      </div>
+    </div>
+
+    <div class="commercial-grid" style="margin-top:24px">
+      <div class="commercial-card">
+        <div class="commercial-card-icon">📄</div>
+        <div class="commercial-card-title">Licensing Model</div>
+        <div class="commercial-card-body">
+          D365 is <strong>per-user, per-month</strong> subscription licensing. DI's 1,000 users would be split across license tiers:
+          <ul>
+            <li><strong>D365 Sales Premium</strong> — full CRM + Copilot for Sales. For relationship managers, sales/recruitment (~200–300 users)</li>
+            <li><strong>D365 Sales Enterprise</strong> — core CRM. For member service, admin users (~400–500 users)</li>
+            <li><strong>Power Apps per-user</strong> — for light users needing form access only (e.g., committee portal users)</li>
+            <li><strong>Customer Insights – Journeys</strong> — tenant-level pricing (not per user), based on marketed contacts</li>
+          </ul>
+          Microsoft EA customers (which Microsoft is) typically receive significant discounts vs. list price. Exact pricing provided in RFI response.
+        </div>
+      </div>
+      <div class="commercial-card">
+        <div class="commercial-card-icon">⚙️</div>
+        <div class="commercial-card-title">Key Cost Drivers</div>
+        <div class="commercial-card-body">
+          The total cost of ownership has four main components:
+          <ul>
+            <li><strong>Licences</strong> — recurring annual subscription, negotiated via EA</li>
+            <li><strong>Implementation</strong> — data model design, configuration, data migration, integration development, and training. Typically the largest one-time cost</li>
+            <li><strong>Data migration</strong> — often under-budgeted; 14 years of MemberCare data requires dedicated workstream</li>
+            <li><strong>Change management &amp; training</strong> — 1,000 users across 7 roles; budget 15–20% of implementation cost</li>
+            <li><strong>Post go-live support &amp; enhancements</strong> — ongoing Power Platform admin, feature releases, and evolution</li>
+          </ul>
+        </div>
+      </div>
+      <div class="commercial-card">
+        <div class="commercial-card-icon">🚀</div>
+        <div class="commercial-card-title">Implementation Approach</div>
+        <div class="commercial-card-body">
+          Microsoft recommends a phased approach for DI's scale:
+          <ul>
+            <li><strong>Phase 0 (8–12 wks)</strong> — Data model design, data assessment, architecture decisions, environment setup</li>
+            <li><strong>Phase 1 MVP (20–28 wks)</strong> — Core data model, UC1 + UC2 scenarios, Outlook/Teams integration, basic dashboards, pilot with 50–100 users</li>
+            <li><strong>Phase 2 (16–20 wks)</strong> — Member dialogue / marketing journeys, event integration, remaining user groups, full rollout</li>
+            <li><strong>Phase 3 (ongoing)</strong> — Fee logic, advanced AI features, Power Platform self-service enhancements</li>
+          </ul>
+          Microsoft FastTrack (included with qualifying D365 licences) provides remote architecture and technical guidance throughout.
+        </div>
+      </div>
+      <div class="commercial-card">
+        <div class="commercial-card-icon">📅</div>
+        <div class="commercial-card-title">Typical Timeline</div>
+        <div class="commercial-card-body">
+          For a comparable membership-organisation CRM programme (1,000 users, complex member hierarchy, legacy migration):
+          <ul>
+            <li><strong>Phase 0 start → MVP go-live:</strong> 8–10 months</li>
+            <li><strong>MVP → full rollout:</strong> additional 4–6 months</li>
+            <li><strong>Total: 12–18 months</strong> from project start to full organisational rollout</li>
+          </ul>
+          Key milestone: <strong>DI's RFI invitation is expected late June 2026</strong>, with responses in August 2026. A contract signed in Q4 2026 → MVP go-live Q3 2027 is a realistic target.
+        </div>
+      </div>
+    </div>
+
+    <div class="price-note">
+      <strong>Note on detailed pricing:</strong> Indicative total cost of ownership for DI's profile (1,000 users, full implementation, Customer Insights – Journeys, Power Platform) will be provided in the formal RFI response. Microsoft's pricing is structured to be transparent and predictable — no usage-based surprises for CRM core functionality. AI features (Copilot) are included in Sales Premium; Customer Insights is priced separately per marketed contacts/unified profiles.
+    </div>
+
+    <div class="req-card blue" style="margin-top:20px">
+      <div class="req-header">
+        <div class="req-icon blue">🤝</div>
+        <div>
+          <div class="req-criterion blue">Delivery Model</div>
+          <div class="req-title">Microsoft Partner Ecosystem</div>
+        </div>
+      </div>
+      <div class="col-body">
+        D365 implementations are delivered by certified Microsoft Partners — not directly by Microsoft. DI should evaluate partner options based on: (1) experience with membership-organisation CRM implementations in Denmark/Scandinavia, (2) size and capability to handle DI's 1,000-user scale, and (3) long-term support model. Microsoft's <strong>FastTrack for Dynamics 365</strong> programme provides Microsoft-direct technical validation at no additional cost for qualifying deals — a built-in quality assurance layer on the implementation.
+      </div>
+      <div class="module-tags">
+        <span class="module-tag blue">FastTrack</span>
+        <span class="module-tag green">Partner-led Implementation</span>
+        <span class="module-tag teal">Post Go-Live Support</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- TAB: SUCCESS CRITERIA (reference) -->
+  <!-- ══════════════════════════════════════════ -->
+  <div class="tab-panel" id="tab-criteria">
+
+    <div class="section-heading">
+      <h2>DI's 6 Success Criteria — D365 Responses</h2>
+      <p>Reference material for the success criteria DI has defined for evaluating vendors. Criteria 1–4 are covered in depth in the Use Case sessions; criteria 5–6 in the challenge session and appendix.</p>
+    </div>
+
+    <!-- Criterion 1: Master Data -->
+    <div class="req-card blue">
+      <div class="req-header">
+        <div class="req-icon blue">🗄️</div>
+        <div>
+          <div class="req-criterion blue">Criterion 1</div>
+          <div class="req-title">Master Data &amp; Data Model — One consistent foundation</div>
+        </div>
+      </div>
+      <div class="two-col">
+        <div>
+          <div class="col-label">DI Requirement</div>
+          <div class="col-body">Single, trustworthy data foundation for member companies, contacts, departments, committees, and board positions. No duplicates. High data trust. Replaces MemberCare's fragmented model.</div>
+        </div>
+        <div>
+          <div class="col-label">D365 Response</div>
+          <div class="col-body">Dataverse is the single source of truth. Standard Account/Contact hierarchy extended with configurable Committee and Board Position tables. Duplicate detection rules and data governance built in. CVR enrichment via Power Automate.</div>
+        </div>
+      </div>
+      <div class="value-strip"><span class="value-strip-icon">📈</span><div><strong>Key outcome:</strong> All 1,000 daily users work from the same dataset. Synchronisation delays between systems disappear. Quarterly fee calculation becomes auditable and predictable.</div></div>
+    </div>
+
+    <!-- Criterion 2: UX -->
+    <div class="req-card purple">
+      <div class="req-header">
+        <div class="req-icon purple">🖥️</div>
+        <div>
+          <div class="req-criterion purple">Criterion 2</div>
+          <div class="req-title">User Experience &amp; Adoption — Intuitive, role-based</div>
+        </div>
+      </div>
+      <div class="two-col">
+        <div>
+          <div class="col-label">DI Requirement</div>
+          <div class="col-body">1,000 users across 7 groups need role-based dashboards, quick cross-entity navigation, and guided workflows that enforce correct registration regardless of user behaviour.</div>
+        </div>
+        <div>
+          <div class="col-label">D365 Response</div>
+          <div class="col-body">Unified Client Interface with personalised dashboards per role. Business Process Flows guide registration. Copilot surfaces next-best-actions. Mobile-ready via D365 mobile app. Full Danish language support.</div>
+        </div>
+      </div>
+      <div class="ai-insight"><div class="ai-insight-icon">✨</div><div class="ai-insight-body"><div class="ai-insight-label">Copilot</div><div class="ai-insight-text">Copilot for Sales surfaces next-best-action recommendations on each account record — <span class="badge-std">Standard</span> in D365 Sales Premium.</div></div></div>
+    </div>
+
+    <!-- Criterion 3: Automation & AI -->
+    <div class="req-card teal">
+      <div class="req-header">
+        <div class="req-icon teal">🤖</div>
+        <div>
+          <div class="req-criterion teal">Criterion 3</div>
+          <div class="req-title">Automation &amp; AI — Reduce manual work</div>
+        </div>
+      </div>
+      <div class="two-col">
+        <div>
+          <div class="col-label">DI Requirement</div>
+          <div class="col-body">Reduce manual registration. Automate workflows. AI for data quality, engagement prioritisation, phone call logging, email tracking, and CVR data validation.</div>
+        </div>
+        <div>
+          <div class="col-label">D365 Response</div>
+          <div class="col-body">Copilot for Sales (meeting summaries, briefings), Conversation Intelligence (call transcription), Outlook add-in (auto-tracking), Power Automate (workflow automation), AI Builder (custom models, anomaly detection).</div>
+        </div>
+      </div>
+      <div class="value-strip"><span class="value-strip-icon">⚡</span><div><strong>Key outcome:</strong> Consultants never manually type a call note or copy-paste an email. AI handles capture; they handle review. CRM adoption increases because the system serves users, not the other way around.</div></div>
+    </div>
+
+    <!-- Criterion 4: Member Dialogue -->
+    <div class="req-card orange">
+      <div class="req-header">
+        <div class="req-icon orange">💬</div>
+        <div>
+          <div class="req-criterion orange">Criterion 4</div>
+          <div class="req-title">Value-Creating Member Dialogue — 360° engagement</div>
+        </div>
+      </div>
+      <div class="two-col">
+        <div>
+          <div class="col-label">DI Requirement</div>
+          <div class="col-body">Complete dialogue overview across all channels. Role-based filtering. Dynamic segmentation of members, committees, and board positions. Targeted campaigns to 120K+ contacts.</div>
+        </div>
+        <div>
+          <div class="col-label">D365 Response</div>
+          <div class="col-body">Unified activity timeline per company/contact. Customer Insights – Journeys for real-time multichannel orchestration and segmentation. Copilot pre-meeting briefing. Activity category filtering by role.</div>
+        </div>
+      </div>
+      <div class="value-strip"><span class="value-strip-icon">💡</span><div><strong>Key outcome:</strong> Every member interaction feels prepared and informed. DI shifts from reactive service to proactive engagement — at scale, with 20,000+ member companies.</div></div>
+    </div>
+
+    <!-- Criterion 5: Flexibility -->
+    <div class="req-card green">
+      <div class="req-header">
+        <div class="req-icon green">⚙️</div>
+        <div>
+          <div class="req-criterion green">Criterion 5</div>
+          <div class="req-title">Flexibility &amp; Configurability — No vendor dependency</div>
+        </div>
+      </div>
+      <div class="col-body" style="margin-bottom:16px">Power Platform gives DI's own team the ability to add fields, change relationships, create workflows, and redesign forms without external development. The clear boundary: <span class="badge-cfg">Configure</span> (self-service) vs. <span class="badge-dev">Custom</span> (specialist) is built into the platform's architecture.</div>
+      <div class="highlight-box"><strong>Key design principle:</strong> DI's CRM team should be able to adapt the data model and workflows in response to organisational changes without a change request to Microsoft or a partner. This is achievable on Power Platform — but only if DI invests in internal platform capability (training, certification, dedicated admin role).</div>
+    </div>
+
+    <!-- Criterion 6: Integration -->
+    <div class="req-card accent">
+      <div class="req-header">
+        <div class="req-icon accent">🔗</div>
+        <div>
+          <div class="req-criterion accent">Criterion 6</div>
+          <div class="req-title">Integration &amp; Architecture — Stable, modern, standards-based</div>
+        </div>
+      </div>
+      <div class="two-col">
+        <div>
+          <div class="col-label">DI Requirement</div>
+          <div class="col-body">Replace MemberCare's 32-system integration landscape. REST API and webhook support. Both real-time and batch synchronisation. Input validation at API layer. Full documentation.</div>
+        </div>
+        <div>
+          <div class="col-label">D365 Response</div>
+          <div class="col-body">OData Web API (fully documented, Swagger/OpenAPI). Webhooks on any entity event. 400+ Power Platform connectors. Azure Integration Services for enterprise-scale scenarios. Power BI native connector.</div>
+        </div>
+      </div>
+      <div class="value-strip"><span class="value-strip-icon">🔌</span><div><strong>Key outcome:</strong> Synchronisation delays eliminated through event-driven real-time propagation. Integration landscape becomes observable, maintainable, and vendor-independent.</div></div>
+    </div>
+
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- TAB: APPENDIX -->
+  <!-- ══════════════════════════════════════════ -->
+  <div class="tab-panel" id="tab-appendix">
+
+    <div class="req-card blue">
+      <div class="req-header">
+        <div class="req-icon blue">🎟️</div>
+        <div>
+          <div class="req-criterion blue">Appendix A</div>
+          <div class="req-title">Event Module — 2,000+ annual events</div>
+        </div>
+      </div>
+      <div class="two-col">
+        <div>
+          <div class="col-label">DI Questions</div>
+          <div class="col-body">Event module or preferred partner? How does it cover creation, pricing, registration, participant management, communication? How does event data integrate with CRM records and history?</div>
+        </div>
+        <div>
+          <div class="col-label">D365 Response</div>
+          <div class="col-body">Customer Insights – Journeys includes a native event module. All registrations are stored in Dataverse — natively linked to Account/Contact records without integration. For DI's 2,000-event volume with complex ticketing, a specialist platform may complement or replace the native module.</div>
+        </div>
+      </div>
+      <div class="delivery-legend" style="margin:16px 0 12px">
+        <strong>Delivery model:</strong>
+        <div class="dl-item"><span class="badge-std">Standard</span> in Customer Insights – Journeys</div>
+        <div class="dl-item"><span class="badge-cfg">Configure</span> for custom registration forms and workflows</div>
+        <div class="dl-item"><span class="badge-dev">Custom</span> for complex paid ticketing at DI's scale</div>
+      </div>
+      <ul class="cap-list">
+        <li><span><strong>Event creation, sessions, speakers, capacity</strong></span><div class="cap-tags"><span class="badge-std">Standard</span><span class="cap-tag orange">CI – Journeys</span></div></li>
+        <li><span><strong>Registration forms &amp; waitlist management</strong></span><div class="cap-tags"><span class="badge-std">Standard</span><span class="cap-tag orange">CI – Journeys</span></div></li>
+        <li><span><strong>Multiple ticket types with pricing tiers</strong></span><div class="cap-tags"><span class="badge-cfg">Configure</span><span class="cap-tag orange">CI – Journeys</span></div></li>
+        <li><span><strong>QR code check-in via mobile app</strong></span><div class="cap-tags"><span class="badge-std">Standard</span><span class="cap-tag orange">CI – Journeys</span></div></li>
+        <li><span><strong>Pre/post event communication journeys</strong></span><div class="cap-tags"><span class="badge-cfg">Configure</span><span class="cap-tag orange">CI – Journeys</span></div></li>
+        <li><span><strong>Event data → CRM activity on Account/Contact (native)</strong></span><div class="cap-tags"><span class="badge-std">Standard</span><span class="cap-tag blue">Dataverse</span></div></li>
+        <li><span><strong>Teams Webinar integration for online events</strong></span><div class="cap-tags"><span class="badge-std">Standard</span><span class="cap-tag blue">Teams</span></div></li>
+        <li><span><strong>Complex paid ticketing, invoicing, e-commerce</strong></span><div class="cap-tags"><span class="badge-dev">Custom</span><span class="cap-tag teal">Partner Platform</span></div></li>
+      </ul>
+      <div class="ai-insight"><div class="ai-insight-icon">✨</div><div class="ai-insight-body"><div class="ai-insight-label">AI Insight</div><div class="ai-insight-text">Event attendance is DI's most powerful engagement signal. With event data natively in Dataverse, Customer Insights can incorporate attendance patterns into engagement scoring — flagging companies whose event participation has dropped as retention risks.</div></div></div>
+    </div>
+
+    <div class="req-card teal" style="margin-top:20px">
       <div class="req-header">
         <div class="req-icon teal">💳</div>
-        <div class="req-title-group">
+        <div>
           <div class="req-criterion teal">Appendix B</div>
           <div class="req-title">Membership Fee Logic (Kontingentlogik)</div>
         </div>
       </div>
-
       <div class="two-col">
         <div>
           <div class="col-label">DI Questions</div>
-          <div class="col-body">
-            Is fee logic a standard part of the solution or does it require separate development/purchase? How much can DI self-configure and maintain without development? What central functions are included — discounts, fee exemptions, min/max amounts, different collection intervals? Does the solution support different calculation methods?
-          </div>
+          <div class="col-body">Standard part of solution or separate development? How much can DI self-configure? Core functions: discounts, exemptions, min/max amounts, different collection intervals, multiple calculation methods?</div>
         </div>
         <div>
-          <div class="col-label">Dynamics 365 Response</div>
-          <div class="col-body">
-            Dynamics 365 does not include a purpose-built membership fee calculation engine out of the box — however, <strong>Dataverse + Power Automate + D365 Finance/Business Central</strong> provides all building blocks to implement DI's exact fee logic as a configurable, self-maintainable solution. The calculation rules are stored as configurable records in Dataverse (no code), with Power Automate executing the quarterly calculation and triggering invoicing in the financial system.
-          </div>
+          <div class="col-label">D365 Response</div>
+          <div class="col-body">No native fee engine. Recommended approach: fee rules stored as configurable Dataverse records (self-maintainable by DI's team), with Power Automate executing the quarterly calculation. Initial setup is custom development; ongoing maintenance is self-service.</div>
         </div>
       </div>
-
-      <div class="col-label">Recommended Approach</div>
       <ul class="cap-list">
-        <li><strong>Fee Rule table in Dataverse</strong> — A custom "Fee Rule" entity stores all calculation parameters as data records: base rate, thresholds, discount percentages, min/max amounts, exemption conditions. DI's team can view, edit, and version these rules without development. <span class="cap-tag">Dataverse Configuration</span></li>
-        <li><strong>Power Automate — quarterly calculation</strong> — Scheduled flow runs at each quarter-end: reads member data, applies fee rules from Dataverse, calculates fee amount, and writes result to member record. Full audit log of each calculation run. <span class="cap-tag">Power Automate</span></li>
-        <li><strong>Industry community &amp; member association fees</strong> — Fee rules can be parameterised by membership type, industry community, and member association — matching DI's current fee structure across 13 communities and 100 associations. <span class="cap-tag">Parameterised Rules</span></li>
-        <li><strong>D365 Finance / Business Central integration</strong> — Calculated fees are pushed to the financial system for invoicing via a standard connector. Payment status syncs back to CRM so relationship managers can see outstanding invoices on the account record. <span class="cap-tag">Finance Integration</span></li>
-        <li><strong>Discount &amp; exemption management</strong> — Discounts and temporary exemptions stored as time-bounded records in Dataverse. Applied automatically in the calculation flow during their validity period. Managed by DI's own membership administration team. <span class="cap-tag">Discount Management</span></li>
-        <li><strong>Calculation method flexibility</strong> — Different methods (flat rate, percentage of payroll, employee count tiers) implemented as configurable strategies within the calculation flow — new methods added without code changes. <span class="cap-tag">Flexible Calculation</span></li>
+        <li><span><strong>Fee rule table in Dataverse (rate, thresholds, min/max, exemptions)</strong> — DI's team can view, edit, and version rules without development after initial setup.</span><div class="cap-tags"><span class="badge-dev">Custom (initial)</span><span class="badge-cfg">Configure (ongoing)</span></div></li>
+        <li><span><strong>Quarterly calculation flow via Power Automate</strong></span><div class="cap-tags"><span class="badge-dev">Custom (initial)</span><span class="cap-tag teal">Power Automate</span></div></li>
+        <li><span><strong>Multiple calculation methods (flat rate, % of payroll, employee count)</strong></span><div class="cap-tags"><span class="badge-dev">Custom</span><span class="cap-tag teal">Power Automate</span></div></li>
+        <li><span><strong>Discount &amp; time-bound exemption records</strong></span><div class="cap-tags"><span class="badge-cfg">Configure</span><span class="cap-tag blue">Dataverse</span></div></li>
+        <li><span><strong>Fee output → financial system for invoicing</strong></span><div class="cap-tags"><span class="badge-dev">Custom</span><span class="cap-tag blue">Integration</span></div></li>
+        <li><span><strong>Anomaly detection on fee calculation output</strong></span><div class="cap-tags"><span class="badge-dev">Custom</span><span class="cap-tag orange">AI Builder</span></div></li>
       </ul>
-
-      <div class="ai-insight">
-        <div class="ai-insight-icon">✨</div>
-        <div class="ai-insight-body">
-          <div class="ai-insight-label">AI Insight — Anomaly Detection in Fee Calculation</div>
-          <div class="ai-insight-text">
-            <strong>AI Builder's anomaly detection</strong> can be applied to the quarterly fee calculation output — automatically flagging companies whose calculated fee has changed significantly from the previous period (e.g., &gt;50% increase or decrease). These flagged cases are routed to the membership administration team for review before invoices are issued, preventing errors before they reach the member — turning a reactive correction process into a proactive quality control step.
-          </div>
-        </div>
-      </div>
-
-      <div class="value-strip" style="margin-top:20px">
-        <span class="value-strip-icon">💰</span>
-        <div><strong>Business value:</strong> DI's quarterly fee calculation is mission-critical — it directly funds the organisation's operations. A configurable, auditable calculation engine in Dataverse gives DI full ownership of the fee logic without vendor dependency. Changes to fee structures (new discount policies, updated thresholds, new membership tiers) are self-service configuration changes, not development requests — reducing cost and time-to-change significantly.</div>
-      </div>
-
-      <div class="module-tags">
-        <span class="module-tag teal">Dataverse</span>
-        <span class="module-tag teal">Power Automate</span>
-        <span class="module-tag orange">AI Builder</span>
-        <span class="module-tag blue">D365 Finance</span>
-      </div>
+      <div class="value-strip" style="margin-top:16px"><span class="value-strip-icon">💰</span><div><strong>Key outcome:</strong> DI's fee logic is configured in Dataverse — not locked in a vendor's product. Changes to fee structures are self-service configuration changes after go-live, not development requests. Full audit trail on every quarterly calculation run.</div></div>
     </div>
 
   </div>
@@ -1438,7 +1131,7 @@ footer {
 </main>
 
 <footer>
-  Generated by Copilot — AI-powered CRM response for Dansk Industri · Dynamics 365 Customer Engagement · Microsoft Power Platform · June 2026
+  Prepared for DI Market Dialogue · Microsoft Dynamics 365 Customer Engagement · Power Platform · June 2026
 </footer>
 
 <script>
@@ -1447,8 +1140,10 @@ function switchTab(btn) {
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
   btn.classList.add('active');
-  document.getElementById(tabId).classList.add('active');
-  document.getElementById('main-tabs').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  const panel = document.getElementById(tabId);
+  if (panel) panel.classList.add('active');
+  // Update agenda strip highlight
+  document.querySelectorAll('.agenda-item').forEach(a => a.classList.remove('active'));
 }
 
 function activateTab(tabId) {
@@ -1459,12 +1154,25 @@ function activateTab(tabId) {
   }
 }
 
-// Accordion support (not used in current layout but available)
-document.querySelectorAll('.accordion-btn').forEach(btn => {
+function toggleChallenge(el) {
+  const isOpen = el.classList.contains('open');
+  // Close all
+  document.querySelectorAll('.challenge-q').forEach(q => q.classList.remove('open'));
+  document.querySelectorAll('.challenge-a').forEach(a => a.classList.remove('open'));
+  if (!isOpen) {
+    el.classList.add('open');
+    el.nextElementSibling.classList.add('open');
+  }
+}
+
+// Highlight agenda items on tab change
+document.querySelectorAll('.tab-btn').forEach(btn => {
   btn.addEventListener('click', () => {
-    const body = btn.nextElementSibling;
-    btn.classList.toggle('open');
-    body.classList.toggle('open');
+    const tabId = btn.getAttribute('data-tab');
+    const map = { 'tab-intro': 0, 'tab-uc1': 1, 'tab-uc2': 2, 'tab-challenge': 3, 'tab-commercial': 4, 'tab-appendix': 5 };
+    document.querySelectorAll('.agenda-item').forEach((a, i) => {
+      a.classList.toggle('active', i === map[tabId]);
+    });
   });
 });
 </script>
