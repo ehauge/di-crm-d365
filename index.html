@@ -284,6 +284,8 @@ footer { background: var(--cp-surface); border-top: 1px solid var(--cp-border); 
         <span class="hero-chip">📅 Market Dialogue · 2.5 hrs</span>
         <span class="hero-chip">🏢 Dansk Industri</span>
         <span class="hero-chip">⚙️ Dynamics 365 CE</span>
+        <span class="hero-chip">🏭 D365 Finance &amp; Operations</span>
+        <span class="hero-chip">🔄 Dual-write</span>
         <span class="hero-chip">🤖 Copilot for Sales</span>
         <span class="hero-chip">🔗 Power Platform</span>
       </div>
@@ -453,11 +455,16 @@ footer { background: var(--cp-surface); border-top: 1px solid var(--cp-border); 
           <div class="uvp-card-title">Dataverse as Integration Hub</div>
           <div class="uvp-card-body">Replacing MemberCare's 32-system point-to-point integrations with a standards-based API and event architecture. Dataverse becomes DI's system of record.</div>
         </div>
+        <div class="uvp-card" style="border-color: var(--d365-blue); border-width:2px">
+          <div class="uvp-card-icon">🔄</div>
+          <div class="uvp-card-title">D365 F&amp;O Already in House — Dual-write Advantage</div>
+          <div class="uvp-card-body"><strong>Since DI already runs D365 Finance &amp; Operations</strong>, the CRM-to-ERP integration is not a custom project — it is a native, included feature called <strong>Dual-write</strong>. Real-time bidirectional sync between CE and F&amp;O is out of the box. Membership fee invoicing, payment status, and customer master sync are covered without building anything.</div>
+        </div>
       </div>
 
       <div class="col-label">Key Prerequisites &amp; Limitations — Stated Upfront</div>
       <ul class="limitation-list">
-        <li><strong>No native membership fee engine.</strong> D365 does not ship with purpose-built contingen/subscription billing. This requires configuration of a custom fee-rule model in Dataverse + Power Automate. DI's team can own and maintain it, but initial setup requires project effort. It is <em>not</em> a click-to-activate module.</li>
+        <li><strong>No native membership fee engine.</strong> D365 does not ship with purpose-built kontingent/subscription billing. This requires configuration of a custom fee-rule model in Dataverse + Power Automate. <strong>However: since DI already uses D365 F&amp;O, the invoicing side is fully covered — Dual-write propagates the calculated fee to F&amp;O where invoice creation, AR, and payment collection happen natively. This is not a custom integration — it is included.</strong></li>
         <li><strong>Complexity of the data migration from MemberCare.</strong> 14 years of member history, 32 existing integrations, and custom MemberCare data structures require a dedicated data migration workstream. This is the single largest project risk and must be scoped carefully in the RFI.</li>
         <li><strong>Adoption investment is real.</strong> With 1,000 daily users across 7 different roles, change management is not optional — it is a critical workstream. D365 is more capable than SuperOffice, but more complex to roll out at scale without dedicated training and change support.</li>
         <li><strong>Conversation Intelligence requires Teams Phone.</strong> Automatic phone call transcription and AI summarisation requires Microsoft Teams Phone as the telephony layer. If DI uses a different telephony provider, this capability requires a custom connector or may not be available in full.</li>
@@ -809,7 +816,7 @@ footer { background: var(--cp-surface); border-top: 1px solid var(--cp-border); 
           <ul>
             <li><strong>Telephony platform decision.</strong> Conversation Intelligence and automatic call logging require Teams Phone (or a certified CCaaS integration). If DI uses a different telephony provider, this must be resolved — or the phone-automation capability of UC2 must be descoped. This decision should be made <em>before</em> the RFI, not after vendor selection.</li>
             <li><strong>Integration hub architecture.</strong> Will DI adopt Dataverse as the system of record (all systems read/write via Dataverse APIs), or maintain a separate integration bus? The former is simpler and more cost-effective for a Microsoft-stack organisation; the latter may be required if DI's existing Azure environment already has a mature API management layer. Clarify this before writing RFI integration requirements.</li>
-            <li><strong>Finance system connection.</strong> Membership fees are calculated in CRM and invoiced in a financial system. Whether that is D365 Finance, Business Central, or a third-party ERP will determine the invoicing integration complexity. If DI is also considering an ERP change, coordinating the timelines is critical.</li>
+            <li><strong>Finance system connection.</strong> <strong>Since DI already uses D365 F&amp;O, this decision is largely made</strong> — Dual-write is the native integration between CE and F&amp;O and is included with qualifying D365 licences. The question to clarify is not <em>which</em> ERP, but <em>which Dual-write entity maps</em> are activated: Account↔Customer, Contact↔Contact, Sales Order↔F&amp;O Sales Order, and — most critically for DI — how the membership fee calculation output triggers an F&amp;O free-text invoice or sales order. This flow should be designed in Phase 0 of the implementation.</li>
             <li><strong>Min Side (member portal) rebuild vs. integrate.</strong> The current Min Side is a self-built portal. Should it be rebuilt on Power Pages (part of the Power Platform, natively connected to Dataverse), or maintained as a separate application integrated via API? Power Pages reduces integration complexity but requires UX design work. This decision shapes the integration scope significantly.</li>
             <li><strong>Event platform decision.</strong> Is the event module in scope for the CRM replacement, or managed separately? If in scope, decide upfront whether to use Customer Insights – Journeys events (configurable, native) or a specialist platform (Cvent, Eventbrite) integrated via Dataverse. This determines one of the largest integration workstreams in the project.</li>
           </ul>
@@ -1047,8 +1054,11 @@ footer { background: var(--cp-surface); border-top: 1px solid var(--cp-border); 
         </div>
         <div>
           <div class="col-label">D365 Response</div>
-          <div class="col-body">OData Web API (fully documented, Swagger/OpenAPI). Webhooks on any entity event. 400+ Power Platform connectors. Azure Integration Services for enterprise-scale scenarios. Power BI native connector.</div>
+          <div class="col-body">OData Web API (fully documented, Swagger/OpenAPI). Webhooks on any entity event. 400+ Power Platform connectors. Azure Integration Services for enterprise-scale scenarios. Power BI native connector. <strong>Dual-write for native real-time CE ↔ F&amp;O sync.</strong></div>
         </div>
+      </div>
+      <div class="info-box" style="margin-top:12px">
+        <strong>D365 F&amp;O + CE via Dual-write — DI's key integration advantage:</strong> Since DI already uses D365 Finance &amp; Operations, the CRM-to-ERP integration is not a custom project — it is the native <strong>Dual-write</strong> framework, included with qualifying D365 licences. This covers: Account ↔ Customer master sync (real-time, bidirectional), Contact sync, price lists, and — critically for DI — the ability to surface F&amp;O invoice and payment data directly on CE Account records via Virtual Entities. A non-Microsoft CRM vendor would need to build all of this as a custom integration. That is a material cost and risk difference that should be quantified explicitly in the RFI evaluation.
       </div>
       <div class="value-strip"><span class="value-strip-icon">🔌</span><div><strong>Key outcome:</strong> Synchronisation delays eliminated through event-driven real-time propagation. Integration landscape becomes observable, maintainable, and vendor-independent.</div></div>
     </div>
@@ -1093,6 +1103,14 @@ footer { background: var(--cp-surface); border-top: 1px solid var(--cp-border); 
         <li><span><strong>Event data → CRM activity on Account/Contact (native)</strong></span><div class="cap-tags"><span class="badge-std">Standard</span><span class="cap-tag blue">Dataverse</span></div></li>
         <li><span><strong>Teams Webinar integration for online events</strong></span><div class="cap-tags"><span class="badge-std">Standard</span><span class="cap-tag blue">Teams</span></div></li>
         <li><span><strong>Complex paid ticketing, invoicing, e-commerce</strong></span><div class="cap-tags"><span class="badge-dev">Custom</span><span class="cap-tag teal">Partner Platform</span></div></li>
+        <li>
+          <span><strong>Paid event revenue → D365 F&amp;O sales order via Dual-write / Power Automate</strong> — When a member registers for a paid event, a sales order line is created in F&amp;O (via Power Automate + F&amp;O API) against the Customer record. F&amp;O handles invoicing and payment collection. Registration payment status syncs back to the CE event registration record.</span>
+          <div class="cap-tags"><span class="badge-dev">Custom</span><span class="cap-tag blue">F&amp;O Integration</span></div>
+        </li>
+        <li>
+          <span><strong>Free event registrations → CE activity only (no F&amp;O transaction)</strong> — For DI's free events, registration creates a CRM activity linked to Account/Contact. No financial transaction needed; no F&amp;O flow triggered. This is the majority of DI's 2,000+ annual events.</span>
+          <div class="cap-tags"><span class="badge-std">Standard</span><span class="cap-tag blue">Dataverse</span></div>
+        </li>
       </ul>
       <div class="ai-insight"><div class="ai-insight-icon">✨</div><div class="ai-insight-body"><div class="ai-insight-label">AI Insight</div><div class="ai-insight-text">Event attendance is DI's most powerful engagement signal. With event data natively in Dataverse, Customer Insights can incorporate attendance patterns into engagement scoring — flagging companies whose event participation has dropped as retention risks.</div></div></div>
     </div>
@@ -1102,28 +1120,114 @@ footer { background: var(--cp-surface); border-top: 1px solid var(--cp-border); 
         <div class="req-icon teal">💳</div>
         <div>
           <div class="req-criterion teal">Appendix B</div>
-          <div class="req-title">Membership Fee Logic (Kontingentlogik)</div>
+          <div class="req-title">Membership Fee Logic — CE + D365 F&amp;O via Dual-write</div>
         </div>
       </div>
+
+      <div class="info-box" style="margin-bottom:20px">
+        <strong>Key context:</strong> DI already runs <strong>D365 Finance &amp; Operations</strong>. This changes the membership fee picture significantly — the CRM-to-ERP integration is not a custom project. <strong>Dual-write</strong> provides native, real-time bidirectional synchronisation between D365 CE (CRM) and D365 F&amp;O. Invoicing, AR, and payment collection stay in F&amp;O where they belong. The CRM's job is fee calculation and visibility — not billing.
+      </div>
+
       <div class="two-col">
         <div>
           <div class="col-label">DI Questions</div>
-          <div class="col-body">Standard part of solution or separate development? How much can DI self-configure? Core functions: discounts, exemptions, min/max amounts, different collection intervals, multiple calculation methods?</div>
+          <div class="col-body">Is fee logic standard or separate development? How much can DI self-configure? Core functions: discounts, exemptions, min/max amounts, different collection intervals, multiple calculation methods?</div>
         </div>
         <div>
-          <div class="col-label">D365 Response</div>
-          <div class="col-body">No native fee engine. Recommended approach: fee rules stored as configurable Dataverse records (self-maintainable by DI's team), with Power Automate executing the quarterly calculation. Initial setup is custom development; ongoing maintenance is self-service.</div>
+          <div class="col-label">D365 CE + F&amp;O Response</div>
+          <div class="col-body">Fee rules stored as configurable Dataverse records (self-maintainable). Power Automate executes the quarterly calculation. <strong>Dual-write propagates the result to F&amp;O</strong>, where a free-text invoice or sales order is created automatically. F&amp;O handles collection, dunning, and payment allocation. Invoice payment status syncs back to CE — visible on the Account record for relationship managers.</div>
         </div>
       </div>
+
+      <div class="col-label">End-to-End Fee Flow — CE to F&amp;O</div>
+      <div style="background:var(--cp-bg); border:1px solid var(--cp-border); border-radius:12px; padding:20px; margin-bottom:20px; overflow-x:auto">
+        <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap; font-size:0.8rem; font-weight:600; color:var(--cp-text-muted)">
+          <div style="background:var(--d365-teal-soft); border:1px solid rgba(0,130,114,0.2); border-radius:8px; padding:8px 14px; text-align:center; min-width:120px">
+            <div style="font-size:0.65rem; color:var(--d365-teal); text-transform:uppercase; letter-spacing:.05em; margin-bottom:3px">Step 1 · CE</div>
+            <div style="color:var(--cp-text)">Fee rules in<br>Dataverse</div>
+          </div>
+          <div style="color:var(--d365-teal); font-size:1.2rem">→</div>
+          <div style="background:var(--d365-teal-soft); border:1px solid rgba(0,130,114,0.2); border-radius:8px; padding:8px 14px; text-align:center; min-width:120px">
+            <div style="font-size:0.65rem; color:var(--d365-teal); text-transform:uppercase; letter-spacing:.05em; margin-bottom:3px">Step 2 · CE</div>
+            <div style="color:var(--cp-text)">Power Automate<br>calculates fee</div>
+          </div>
+          <div style="color:var(--d365-teal); font-size:1.2rem">→</div>
+          <div style="background:var(--d365-blue-soft); border:2px solid var(--d365-blue); border-radius:8px; padding:8px 14px; text-align:center; min-width:130px">
+            <div style="font-size:0.65rem; color:var(--d365-blue); text-transform:uppercase; letter-spacing:.05em; margin-bottom:3px">🔄 Dual-write</div>
+            <div style="color:var(--cp-text)">CE Account →<br>F&amp;O Customer</div>
+          </div>
+          <div style="color:var(--d365-blue); font-size:1.2rem">→</div>
+          <div style="background:var(--d365-blue-soft); border:1px solid rgba(0,120,212,0.2); border-radius:8px; padding:8px 14px; text-align:center; min-width:120px">
+            <div style="font-size:0.65rem; color:var(--d365-blue); text-transform:uppercase; letter-spacing:.05em; margin-bottom:3px">Step 4 · F&amp;O</div>
+            <div style="color:var(--cp-text)">Free-text invoice<br>created</div>
+          </div>
+          <div style="color:var(--d365-blue); font-size:1.2rem">→</div>
+          <div style="background:var(--d365-blue-soft); border:1px solid rgba(0,120,212,0.2); border-radius:8px; padding:8px 14px; text-align:center; min-width:120px">
+            <div style="font-size:0.65rem; color:var(--d365-blue); text-transform:uppercase; letter-spacing:.05em; margin-bottom:3px">Step 5 · F&amp;O</div>
+            <div style="color:var(--cp-text)">AR collection<br>&amp; payment</div>
+          </div>
+          <div style="color:var(--d365-blue); font-size:1.2rem">→</div>
+          <div style="background:var(--d365-teal-soft); border:2px solid var(--d365-teal); border-radius:8px; padding:8px 14px; text-align:center; min-width:120px">
+            <div style="font-size:0.65rem; color:var(--d365-teal); text-transform:uppercase; letter-spacing:.05em; margin-bottom:3px">🔄 Dual-write</div>
+            <div style="color:var(--cp-text)">Payment status<br>→ CE Account</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="delivery-legend" style="margin:0 0 14px">
+        <strong>Delivery model:</strong>
+        <div class="dl-item"><span class="badge-std">Standard</span> Native Dual-write, included with D365 licence</div>
+        <div class="dl-item"><span class="badge-cfg">Configure</span> No-code rules &amp; self-maintained after initial setup</div>
+        <div class="dl-item"><span class="badge-dev">Custom</span> Initial setup &amp; fee calculation logic</div>
+      </div>
+
       <ul class="cap-list">
-        <li><span><strong>Fee rule table in Dataverse (rate, thresholds, min/max, exemptions)</strong> — DI's team can view, edit, and version rules without development after initial setup.</span><div class="cap-tags"><span class="badge-dev">Custom (initial)</span><span class="badge-cfg">Configure (ongoing)</span></div></li>
-        <li><span><strong>Quarterly calculation flow via Power Automate</strong></span><div class="cap-tags"><span class="badge-dev">Custom (initial)</span><span class="cap-tag teal">Power Automate</span></div></li>
-        <li><span><strong>Multiple calculation methods (flat rate, % of payroll, employee count)</strong></span><div class="cap-tags"><span class="badge-dev">Custom</span><span class="cap-tag teal">Power Automate</span></div></li>
-        <li><span><strong>Discount &amp; time-bound exemption records</strong></span><div class="cap-tags"><span class="badge-cfg">Configure</span><span class="cap-tag blue">Dataverse</span></div></li>
-        <li><span><strong>Fee output → financial system for invoicing</strong></span><div class="cap-tags"><span class="badge-dev">Custom</span><span class="cap-tag blue">Integration</span></div></li>
-        <li><span><strong>Anomaly detection on fee calculation output</strong></span><div class="cap-tags"><span class="badge-dev">Custom</span><span class="cap-tag orange">AI Builder</span></div></li>
+        <li>
+          <span><strong>Dual-write — Account ↔ Customer master sync</strong> — CE Account (member company) syncs bidirectionally with F&amp;O Customer record in real time. Changes in either system propagate immediately. No batch jobs, no sync delays.</span>
+          <div class="cap-tags"><span class="badge-std">Standard</span><span class="cap-tag blue">Dual-write</span></div>
+        </li>
+        <li>
+          <span><strong>Dual-write — Contact ↔ F&amp;O Contact sync</strong> — Member contacts visible in both CE and F&amp;O. CE is the system of record; F&amp;O consumes contact data for invoicing (billing contact, correspondence).</span>
+          <div class="cap-tags"><span class="badge-std">Standard</span><span class="cap-tag blue">Dual-write</span></div>
+        </li>
+        <li>
+          <span><strong>Fee rule table in Dataverse (rate, thresholds, min/max, exemptions)</strong> — DI's membership administration team can view, edit, and version fee rules without development after initial setup. Full audit trail of rule changes.</span>
+          <div class="cap-tags"><span class="badge-dev">Custom (initial)</span><span class="badge-cfg">Configure (ongoing)</span></div>
+        </li>
+        <li>
+          <span><strong>Quarterly calculation — Power Automate flow</strong> — Scheduled flow reads member payroll data / employee count from Account records, applies fee rules, calculates amount, writes result to Account. Full execution log per member per quarter.</span>
+          <div class="cap-tags"><span class="badge-dev">Custom</span><span class="cap-tag teal">Power Automate</span></div>
+        </li>
+        <li>
+          <span><strong>F&amp;O free-text invoice creation</strong> — Power Automate (triggered by fee calculation complete) calls F&amp;O API to create a free-text invoice against the Customer record. Invoice lines: membership fee per period, per community/association where applicable.</span>
+          <div class="cap-tags"><span class="badge-dev">Custom</span><span class="cap-tag blue">F&amp;O API</span></div>
+        </li>
+        <li>
+          <span><strong>Invoice &amp; payment status back to CE</strong> — F&amp;O invoice status (Open, Partially paid, Settled) syncs back to CE Account record via Dual-write or virtual entities. Relationship managers see outstanding invoices directly on the member record — no F&amp;O login needed.</span>
+          <div class="cap-tags"><span class="badge-std">Standard</span><span class="cap-tag blue">Dual-write / Virtual Entities</span></div>
+        </li>
+        <li>
+          <span><strong>Multiple calculation methods (flat rate, % payroll, employee count tiers)</strong> — Different methods implemented as configurable calculation strategies within the Power Automate flow. Adding a new method does not require rewriting the flow — only adding a new rule record in Dataverse.</span>
+          <div class="cap-tags"><span class="badge-dev">Custom</span><span class="cap-tag teal">Power Automate</span></div>
+        </li>
+        <li>
+          <span><strong>Discount &amp; time-bound exemption records</strong> — Discounts and exemptions stored as Dataverse records with validity dates. Automatically applied in the calculation flow during the valid period. Managed by DI's membership team without development.</span>
+          <div class="cap-tags"><span class="badge-cfg">Configure</span><span class="cap-tag blue">Dataverse</span></div>
+        </li>
+        <li>
+          <span><strong>F&amp;O Virtual Entities in CE</strong> — D365 F&amp;O Virtual Entities allow CE users to query F&amp;O data (invoices, payment journal lines, customer ledger) directly in CE forms — without Dual-write replication. Read-only, real-time. No data duplication.</span>
+          <div class="cap-tags"><span class="badge-std">Standard</span><span class="cap-tag blue">Virtual Entities</span></div>
+        </li>
+        <li>
+          <span><strong>AI Builder — anomaly detection on fee output</strong> — Flags member companies where calculated fee has changed &gt;50% vs. prior period. Routes to membership administration for review before F&amp;O invoice is created.</span>
+          <div class="cap-tags"><span class="badge-dev">Custom</span><span class="cap-tag orange">AI Builder</span></div>
+        </li>
       </ul>
-      <div class="value-strip" style="margin-top:16px"><span class="value-strip-icon">💰</span><div><strong>Key outcome:</strong> DI's fee logic is configured in Dataverse — not locked in a vendor's product. Changes to fee structures are self-service configuration changes after go-live, not development requests. Full audit trail on every quarterly calculation run.</div></div>
+
+      <div class="value-strip" style="margin-top:16px">
+        <span class="value-strip-icon">💰</span>
+        <div><strong>Key outcome — F&amp;O advantage:</strong> Since DI already has F&amp;O, the invoicing, AR, dunning, and payment collection infrastructure is <em>already in place</em>. CRM's job is to own the fee calculation rules and provide relationship managers with invoice visibility — not to rebuild what F&amp;O already does. This is a significant scope reduction vs. a non-Microsoft CRM vendor who would need to integrate to F&amp;O from scratch.</div>
+      </div>
     </div>
 
   </div>
